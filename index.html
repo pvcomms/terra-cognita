@@ -1,0 +1,1296 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terra Cognita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#EFE9DC; --paper-2:#F7F3EA; --paper-3:#E4DDCD;
+  --ink:#2A2622; --ink-2:#6B635A; --ink-3:#9A9186; --line:#D8D0C0; --line-2:#C7BEAC;
+  --sea:#D3DDDA; --sea-2:#C4D1CD; --accent:#B4372A; --accent-soft:#E4B7AF; --link:#3E5F8A;
+  --e0:#E2E5CD; --e1:#D4D7B6; --e2:#C5C69D; --e3:#B4AE84; --e4:#A1906A; --e5:#8C7452;
+  --d-family:#B5605A; --d-belonging:#8E6A8C; --d-body:#6E8C5E; --d-work:#5F7F9C; --d-money:#C29A4B; --d-taste:#4F8C86;
+  --ghost:#7A736A; --wash:.22; --grain:.14;
+  --f-display:'Bricolage Grotesque','Schibsted Grotesk','Helvetica Neue',sans-serif;
+  --f-body:'Newsreader','Iowan Old Style',Georgia,serif;
+  --f-mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  color-scheme: dark;
+  --paper:#15171A; --paper-2:#1D2024; --paper-3:#24282D;
+  --ink:#E6E0D2; --ink-2:#A39C90; --ink-3:#6F6A62; --line:#2F3338; --line-2:#3C4147;
+  --sea:#1A2226; --sea-2:#22303A; --accent:#E0644F; --accent-soft:#5A2E28; --link:#8FB0D8;
+  --e0:#2B3326; --e1:#36402C; --e2:#434B33; --e3:#54573B; --e4:#665F44; --e5:#7A6A4E;
+  --d-family:#D48078; --d-belonging:#B58FB2; --d-body:#93B183; --d-work:#89A8C4; --d-money:#D9B366; --d-taste:#79B3AD;
+  --ghost:#8C857B; --wash:.2; --grain:.09;
+}}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#15171A; --paper-2:#1D2024; --paper-3:#24282D;
+  --ink:#E6E0D2; --ink-2:#A39C90; --ink-3:#6F6A62; --line:#2F3338; --line-2:#3C4147;
+  --sea:#1A2226; --sea-2:#22303A; --accent:#E0644F; --accent-soft:#5A2E28; --link:#8FB0D8;
+  --e0:#2B3326; --e1:#36402C; --e2:#434B33; --e3:#54573B; --e4:#665F44; --e5:#7A6A4E;
+  --d-family:#D48078; --d-belonging:#B58FB2; --d-body:#93B183; --d-work:#89A8C4; --d-money:#D9B366; --d-taste:#79B3AD;
+  --ghost:#8C857B; --wash:.2; --grain:.09;
+}
+html,body{color-scheme:inherit}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;padding-inline:clamp(16px,3vw,40px);padding-block:0 96px;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-0.02em;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,68px);font-weight:700;font-variation-settings:'opsz' 96}
+h2{font-size:clamp(26px,3.2vw,34px);font-weight:600}
+h3{font-size:20px;font-weight:600;letter-spacing:-0.01em}
+h4{font-size:12px;font-family:var(--f-mono);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+p{margin:0 0 1em;max-width:66ch}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.wrap{max-width:1200px;margin-inline:auto}
+.reading{max-width:66ch}
+.tabnum{font-variant-numeric:tabular-nums}
+small,.small{font-size:14px}
+code,kbd{font-family:var(--f-mono);font-size:.86em;background:var(--paper-2);border:1px solid var(--line);padding:.05em .35em;border-radius:3px}
+
+/* header */
+.masthead{padding-block:48px 28px;display:grid;grid-template-columns:1fr;gap:18px}
+.masthead .dek{font-size:clamp(18px,2vw,22px);line-height:1.45;max-width:58ch;color:var(--ink);font-family:var(--f-body)}
+.masthead .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline}
+.specimen-tag{display:inline-flex;gap:8px;align-items:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);padding:5px 9px;border-radius:3px;background:var(--paper-2)}
+.specimen-tag i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+
+/* instrument layout */
+.instrument{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start;margin-block:8px 18px}
+@media (max-width:1000px){.instrument{grid-template-columns:1fr}}
+.mapcol{min-width:0}
+.controls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 0 12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:12px}
+.controls .grp{display:inline-flex;gap:6px;align-items:center}
+.controls .lbl{color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;font-size:10px;margin-right:2px}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--paper-2)}
+.seg button{appearance:none;border:0;background:transparent;color:var(--ink-2);font:inherit;padding:6px 10px;cursor:pointer;transition:background .18s ease,color .18s ease}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button:hover:not([aria-pressed="true"]){background:var(--paper-3)}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--paper-2);color:var(--ink);font:inherit;padding:6px 10px;border-radius:4px;cursor:pointer;transition:transform .12s ease,background .18s ease}
+.btn:hover{background:var(--paper-3)}.btn:active{transform:scale(.98)}
+.toggle{display:inline-flex;align-items:center;gap:7px;cursor:pointer;user-select:none;color:var(--ink-2)}
+.toggle input{accent-color:var(--accent);margin:0;width:14px;height:14px}
+.toggle input:checked+span{color:var(--ink)}
+
+.mapwrap{position:relative;border:1px solid var(--line-2);border-radius:4px;overflow:hidden;background:var(--sea);margin-top:12px}
+.mapwrap svg#map{display:block;width:100%;height:auto;aspect-ratio:1200/760;max-width:100%;cursor:grab;touch-action:none}
+.mapwrap svg#map:active{cursor:grabbing}
+.corner{position:absolute;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-2);pointer-events:none}
+.corner.tl{left:12px;top:10px;text-transform:uppercase;letter-spacing:.14em}
+.corner.tr{right:12px;top:10px;text-align:right}
+.corner.bl{left:12px;bottom:10px;pointer-events:auto}
+.corner.br{right:12px;bottom:10px;text-align:right}
+.legendbar{display:flex;flex-wrap:wrap;gap:5px 14px;align-items:center;padding:9px 2px 0;font-family:var(--f-mono);font-size:10.5px;line-height:1.3;color:var(--ink-2)}
+.legendbar .k{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.legendbar svg{width:26px;height:14px;flex:none;overflow:visible}
+.legendbar .head{flex-basis:100%;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-size:9.5px;margin-top:3px}
+.legendbar .head:first-child{margin-top:0}
+@media (max-width:640px){.corner.tr{display:none}}
+
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-size:11px;line-height:1.35;padding:6px 8px;border-radius:3px;max-width:240px;opacity:0;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease;z-index:5}
+.tip.on{opacity:1;transform:translateY(0)}
+.tip b{display:block;font-weight:500;color:var(--paper)}
+.tip span{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+
+/* map svg styles */
+#map text{font-family:var(--f-mono);fill:var(--ink);pointer-events:none}
+#map .district-lbl{font-family:var(--f-body);font-style:italic;font-size:15px;letter-spacing:.2em;text-transform:uppercase;fill:var(--ink);opacity:.72;paint-order:stroke;stroke:var(--paper-2);stroke-width:5px;stroke-linejoin:round;text-anchor:middle}
+#map .land path{stroke:var(--ink);stroke-opacity:.16;stroke-width:.7;vector-effect:non-scaling-stroke;transition:opacity .4s ease}
+#map .land path.coast{stroke-opacity:.5;stroke-width:1.1}
+#map .land path.e0{fill:var(--e0)}#map .land path.e1{fill:var(--e1)}#map .land path.e2{fill:var(--e2)}#map .land path.e3{fill:var(--e3)}#map .land path.e4{fill:var(--e4)}#map .land path.e5{fill:var(--e5)}
+#map .districts path{fill-opacity:var(--wash);stroke:none;mix-blend-mode:multiply}
+:root[data-theme="dark"] #map .districts path{mix-blend-mode:screen}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #map .districts path{mix-blend-mode:screen}}
+.dom-family{fill:var(--d-family);stroke:var(--d-family)}.dom-belonging{fill:var(--d-belonging);stroke:var(--d-belonging)}.dom-body{fill:var(--d-body);stroke:var(--d-body)}.dom-work{fill:var(--d-work);stroke:var(--d-work)}.dom-money{fill:var(--d-money);stroke:var(--d-money)}.dom-taste{fill:var(--d-taste);stroke:var(--d-taste)}
+#map .unex path{fill:url(#hatch-unex);stroke:var(--ink);stroke-opacity:.45;stroke-width:1;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
+#map .unex text{font-size:10px;fill:var(--ink-2);letter-spacing:.04em}
+#map .edges path{fill:none;stroke:var(--ink);stroke-opacity:.28;stroke-width:1;vector-effect:non-scaling-stroke;transition:stroke-opacity .25s ease,stroke-width .25s ease}
+#map .edges path.reinforced{stroke-width:.8;stroke-opacity:.22}
+#map .edges path.contradicts{stroke:var(--accent);stroke-dasharray:5 4;stroke-opacity:.6}
+#map .edges path.inherited{stroke-dasharray:1.5 3.5;stroke-opacity:.45}
+#map .edges path.protects{stroke-dasharray:8 4;stroke-opacity:.35}
+#map .edges path.recut{stroke:var(--accent);stroke-dasharray:7 3 1.5 3;stroke-width:1.4;stroke-opacity:.8}
+#map .edges path.mediates{stroke-dasharray:1 3;stroke-opacity:.4}
+#map.lit .edges path{stroke-opacity:.06}
+#map.lit .edges path.lit{stroke-opacity:.95;stroke-width:1.8}
+#map .nodes .node{cursor:pointer}
+#map .nodes .glyph{fill:var(--paper-2);stroke-width:1.7;vector-effect:non-scaling-stroke;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .35s ease}
+#map .nodes .node.st-proposed .glyph{stroke-dasharray:3 2.2;fill-opacity:.7}
+#map .nodes .node.st-contested .glyph{stroke:var(--accent);stroke-dasharray:1.5 2.2}
+#map .nodes .node.st-endorsed .glyph{stroke-width:2.2}
+#map .nodes .node .hatch{pointer-events:none;stroke:none;opacity:0;transition:opacity .3s ease}
+#map.mediation .nodes .node.lo-external .hatch{opacity:.85;fill:url(#hatch-dense)}
+#map.mediation .nodes .node.lo-introjected .hatch{opacity:.7;fill:url(#hatch-light)}
+#map.mediation .nodes .node.lo-identified .hatch{opacity:.35;fill:url(#hatch-faint)}
+#map.mediation .nodes .node.lo-integrated .hatch{opacity:0}
+#map .nodes .node .halo{fill:none;stroke:var(--accent);stroke-width:2.5;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .25s ease}
+#map .nodes .node.sel .halo,#map .nodes .node.hov .halo{opacity:1}
+#map .nodes .node.sel .glyph{stroke:var(--accent)}
+#map .nodes text.lbl{font-size:10.5px;fill:var(--ink);paint-order:stroke;stroke:var(--paper-2);stroke-width:3.5px;stroke-linejoin:round;text-anchor:middle;transition:opacity .3s ease}
+#map .nodes text.lbl.minor{opacity:0}
+#map[data-z="near"] .nodes text.lbl.minor,#map .nodes .node.hov text.lbl.minor,#map .nodes .node.sel text.lbl.minor{opacity:1}
+#map .nodes .node.major text.lbl{font-size:11.5px;font-weight:500}
+#map.fog .nodes .node.dim,#map.fog .edges path:not(.lit){opacity:.07}
+#map.fog .land,#map.fog .districts{opacity:.55}
+#map .ghosts{display:none}#map.compare .ghosts{display:block}
+#map .ghosts .gline{fill:none;stroke:var(--ghost);stroke-width:1.2;stroke-dasharray:6 4;vector-effect:non-scaling-stroke}
+#map .ghosts .gglyph{fill:var(--paper);stroke:var(--ghost);stroke-width:1.6;stroke-dasharray:2.5 2;vector-effect:non-scaling-stroke;cursor:pointer}
+#map .ghosts text{font-size:10px;fill:var(--ghost);paint-order:stroke;stroke:var(--paper);stroke-width:3px;text-anchor:middle}
+#map .ghosts .gtie{fill:none;stroke:var(--ghost);stroke-width:2.2;stroke-opacity:.55;vector-effect:non-scaling-stroke}
+#map .compass text{font-size:9.5px;letter-spacing:.14em;fill:var(--ink-2)}
+#map .compass path,#map .compass circle,#map .compass line{stroke:var(--ink);fill:none;vector-effect:non-scaling-stroke}
+#map .grain{pointer-events:none;mix-blend-mode:multiply;opacity:var(--grain)}
+:root[data-theme="dark"] #map .grain{mix-blend-mode:screen}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #map .grain{mix-blend-mode:screen}}
+#map .coast-draw{stroke-dasharray:1;stroke-dashoffset:0}
+@media (prefers-reduced-motion:no-preference){
+  #map.intro .land path{animation:landin .9s cubic-bezier(.16,1,.3,1) both}
+  #map.intro .districts path{animation:washin 1.2s ease .5s both}
+  #map.intro .nodes .node{animation:nodein .6s cubic-bezier(.16,1,.3,1) both}
+  @keyframes landin{from{opacity:0}to{opacity:1}}
+  @keyframes washin{from{fill-opacity:0}to{fill-opacity:var(--wash)}}
+  @keyframes nodein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+
+/* panel */
+.panel{position:sticky;top:12px;border:1px solid var(--line-2);border-radius:4px;background:var(--paper-2);padding:16px 18px 18px;font-size:14.5px;line-height:1.5;max-height:calc(100vh - 24px);overflow:auto}
+@media (max-width:1000px){.panel{position:static;max-height:none}}
+.panel h3{margin:4px 0 8px;font-size:22px;line-height:1.1}
+.panel .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.badge{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px;border:1px solid var(--line-2);color:var(--ink-2);background:var(--paper)}
+.badge.dom{border-color:currentColor}
+.badge.st-endorsed{color:var(--ink);border-color:var(--ink)}
+.badge.st-proposed{border-style:dashed}
+.badge.st-contested{color:var(--accent);border-color:var(--accent);border-style:dotted}
+.badge.st-reported{}
+.panel dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:10px 0 14px;font-family:var(--f-mono);font-size:11.5px}
+.panel dt{color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;font-size:10px;padding-top:2px}
+.panel dd{margin:0;color:var(--ink)}
+.panel h4{margin:14px 0 6px}
+.panel .quote{font-family:var(--f-body);font-size:15.5px;line-height:1.45;margin:0 0 8px;padding-left:12px;border-left:2px solid var(--line-2)}
+.panel .quote .age{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}
+.panel.field{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.panel.field h3,.panel.field dd,.panel.field .quote{color:var(--paper)}
+.panel.field dt,.panel.field h4,.panel.field .badge,.panel.field .quote .age{color:color-mix(in srgb,var(--paper) 62%,transparent);border-color:color-mix(in srgb,var(--paper) 30%,transparent)}
+.panel.field .quote{font-size:19px;line-height:1.4;border-left-color:var(--accent)}
+.panel .edgelist{list-style:none;margin:0;padding:0;font-size:13px}
+.panel .edgelist li{display:flex;gap:8px;align-items:baseline;padding:4px 0;border-top:1px solid var(--line)}
+.panel .edgelist li:first-child{border-top:0}
+.panel .edgelist button{appearance:none;border:0;background:transparent;font:inherit;color:var(--link);text-align:left;cursor:pointer;padding:0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.panel .edgelist button:hover{color:var(--accent)}
+.panel .edgelist .et{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);flex:none;min-width:86px}
+.panel .edgelist .rung{font-family:var(--f-mono);font-size:9.5px;color:var(--ink-3);margin-left:auto;flex:none}
+.panel .core svg{width:300px;max-width:100%;height:auto;display:block;overflow:visible}
+.panel .core text{font-family:var(--f-mono);font-size:10px;fill:var(--ink-2)}
+.panel.field .core text{fill:color-mix(in srgb,var(--paper) 70%,transparent)}
+.panel .core .band{stroke:var(--paper-2);stroke-width:1}
+.panel .core .intr{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:4 2}
+.panel .core .col{fill:none;stroke:var(--ink);stroke-opacity:.4;stroke-width:1}
+.panel .try{margin:12px 0 0;padding:0;list-style:none;font-size:14px}
+.panel .try li{padding:6px 0;border-top:1px solid var(--line);display:flex;gap:10px}
+.panel .try li b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);flex:none;padding-top:3px;min-width:44px}
+.panel .try button{appearance:none;border:0;background:transparent;font:inherit;color:var(--link);text-align:left;cursor:pointer;padding:0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.panel .try button:hover{color:var(--accent)}
+.panel .mini{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.gauge{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:6px 0 2px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.gauge span{padding:5px 0 3px;border-top:3px solid var(--line);text-align:center}
+.gauge span.on{border-top-color:var(--accent);color:var(--ink)}
+.panel.field .gauge span{border-top-color:color-mix(in srgb,var(--paper) 25%,transparent)}
+.panel.field .gauge span.on{border-top-color:var(--accent);color:var(--paper)}
+.tastebox{font-family:var(--f-mono);font-size:11.5px;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:6px 0 4px}
+.tastebox b{font-weight:500;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;font-size:10px}
+
+/* timeline */
+.timeline{margin-block:6px 40px}
+.timeline .bar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:10px 0;font-family:var(--f-mono);font-size:12px;border-top:1px solid var(--line)}
+.timeline .agebox{font-size:13px;color:var(--ink)}
+.timeline .agebox b{font-weight:500;font-size:22px;letter-spacing:-0.02em;font-family:var(--f-display);margin-right:6px}
+.tl-scroll{overflow-x:auto;border:1px solid var(--line-2);border-radius:4px;background:var(--paper-2)}
+.tl-scroll svg{display:block;width:100%;min-width:760px;height:auto}
+#tl text{font-family:var(--f-mono);fill:var(--ink-2);font-size:10.5px}
+#tl .lane-lbl{fill:var(--ink-3);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+#tl .band rect{rx:2;fill-opacity:.55;stroke:none}
+#tl .band.structure rect{fill:var(--paper-3)}
+#tl .band.conjuncture rect{fill:var(--sea-2)}
+#tl .band text{fill:var(--ink);font-size:10.5px}
+#tl .outer circle{fill:var(--ink)}
+#tl .outer text{fill:var(--ink)}
+#tl .bump rect{fill:var(--e0);fill-opacity:.5}
+#tl .bump text{fill:var(--ink-3);font-size:9.5px;letter-spacing:.1em}
+#tl .unc rect{fill:url(#hatch-tl);stroke:var(--ink);stroke-opacity:.35;stroke-dasharray:4 3}
+#tl .unc text{fill:var(--ink-2);font-size:9.5px;letter-spacing:.08em}
+#tl .axis line{stroke:var(--line-2)}
+#tl .axis .tick line{stroke:var(--ink);stroke-opacity:.35}
+#tl .axis text{fill:var(--ink-2)}
+#tl .ev{cursor:pointer}
+#tl .ev .g{stroke:var(--paper-2);stroke-width:1.2;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+#tl .ev text{opacity:0;fill:var(--ink);font-size:10px;paint-order:stroke;stroke:var(--paper-2);stroke-width:3px;transition:opacity .2s ease}
+#tl .ev:hover text,#tl .ev.sel text{opacity:1}
+#tl .ev.future{opacity:.25}
+#tl .scrub{cursor:ew-resize}
+#tl .scrub line{stroke:var(--accent);stroke-width:1.5}
+#tl .scrub rect{fill:var(--accent)}
+#tl .scrub text{fill:var(--paper);font-size:11px;font-weight:500;text-anchor:middle}
+#tl .scrub .grab{fill:transparent;cursor:ew-resize}
+#tl .shade rect{fill:var(--ink);fill-opacity:.06;pointer-events:none}
+
+/* plan */
+.plan{margin-top:24px}
+.sec{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px 36px;padding-block:44px;border-top:1px solid var(--line)}
+@media (max-width:860px){.sec{grid-template-columns:1fr;gap:8px;padding-block:32px}}
+.sec .rail{position:sticky;top:20px;align-self:start}
+.sec .rail .eyebrow{display:block;margin-bottom:6px}
+.sec .rail .n{font-family:var(--f-display);font-size:30px;font-weight:500;letter-spacing:-0.03em;color:var(--ink-3);line-height:1}
+.sec h2{margin-bottom:16px}
+.sec p{max-width:66ch}
+.sec ul,.sec ol{max-width:70ch;padding-left:1.2em;margin:0 0 1em}
+.sec li{margin:0 0 .45em}
+.sec li b,.sec p b{font-weight:600;font-family:var(--f-display);letter-spacing:-0.01em}
+.tbl{overflow-x:auto;margin:14px 0 20px;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.4;min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-top:1px solid var(--line)}
+thead th{border-top:0;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);font-weight:500;background:var(--paper-2)}
+td:first-child{font-family:var(--f-display);font-weight:600;letter-spacing:-0.01em;white-space:nowrap}
+td .src{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);margin-top:3px;letter-spacing:.02em}
+.pull{font-family:var(--f-body);font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.35;max-width:30ch;margin:18px 0 22px;color:var(--ink);text-wrap:balance}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 28px;max-width:100%}
+.grid2>div{max-width:52ch}
+.grid2 h3{margin-bottom:6px;font-size:17px}
+.grid2 p{font-size:15.5px}
+.gate{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2);margin-top:-6px;margin-bottom:12px}
+.gate b{color:var(--accent);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:10px;margin-right:6px}
+.refs{columns:2;column-gap:36px;font-size:13.5px;line-height:1.45;max-width:100%}
+@media (max-width:760px){.refs{columns:1}}
+.refs h4{break-after:avoid;margin:0 0 8px}
+.refs ul{list-style:none;padding:0;margin:0 0 20px;break-inside:auto}
+.refs li{margin:0 0 5px;break-inside:avoid;padding-left:1.1em;text-indent:-1.1em}
+.refs li .c{color:var(--accent);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-left:4px}
+.refs a{color:inherit}
+.refs a:hover{color:var(--accent)}
+.foot{border-top:1px solid var(--line);padding-top:22px;font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 24px}
+.reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+  .reveal{transition:transform .7s cubic-bezier(.16,1,.3,1)}
+  .reveal:not(.in){transform:translateY(10px)}
+}
+</style>
+</head><body>
+<div class="wrap">
+<header class="masthead">
+  <span class="eyebrow">Sense-making instrument · plan v0.1 · 17 September 2026</span>
+  <h1>Terra Cognita</h1>
+  <p class="dek">An instrument for making a life legible to the person living it. Cartography for structure, geology for time, and a calibration loop so the map earns its authority by prediction rather than eloquence. Below: the mechanics running on a synthetic life, then the plan.</p>
+  <div class="row">
+    <span class="specimen-tag"><i></i> Specimen A · synthetic · not a real person</span>
+    <span class="small" style="color:var(--ink-2)">Full plan with schemas, protocols and bibliography: <code>~/terra-cognita-plan.md</code></span>
+  </div>
+</header>
+
+<section class="instrument" aria-label="The instrument">
+  <div class="mapcol">
+    <div class="controls" role="toolbar" aria-label="Map controls">
+      <span class="grp"><span class="lbl">Mode</span>
+        <span class="seg" id="modeSeg"><button type="button" data-v="observer" aria-pressed="true">Observer</button><button type="button" data-v="field" aria-pressed="false">Field</button></span></span>
+      <span class="grp"><span class="lbl">Edges</span>
+        <span class="seg" id="edgeSeg"><button type="button" data-v="causal" aria-pressed="true">Causal</button><button type="button" data-v="all" aria-pressed="false">All</button><button type="button" data-v="none" aria-pressed="false">None</button></span></span>
+      <label class="toggle"><input type="checkbox" id="tgMediation"><span>Mediation hatch</span></label>
+      <label class="toggle"><input type="checkbox" id="tgCompare"><span>Second account: Father</span></label>
+      <button type="button" class="btn" id="btnReset">Reset view</button>
+    </div>
+    <div class="mapwrap" id="mapwrap">
+      <svg id="map" role="img" aria-label="Map of Specimen A's inner life: six districts as land, schemas as peaks, events as index fossils, with typed edges between them"></svg>
+      <div class="corner tl">Specimen A · age <span id="ageTag">38</span> · projection: co-occurrence in the telling</div>
+      <div class="corner br">the map is not the territory · one contour = one reinforcing event</div>
+      <div class="tip" id="tip" aria-hidden="true"></div>
+    </div>
+    <div class="legendbar" id="legend" aria-label="Legend"></div>
+  </div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</section>
+
+<section class="timeline" aria-label="Timeline">
+  <div class="bar">
+    <span class="agebox">Age <b id="ageNum" class="tabnum">38</b><span style="color:var(--ink-3)">born 1988 · told at 38</span></span>
+    <span class="grp" style="display:inline-flex;gap:8px;align-items:center"><span class="lbl" style="color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;font-size:10px">Scale</span>
+      <span class="seg" id="scaleSeg"><button type="button" data-v="clock" aria-pressed="true">Clock</button><button type="button" data-v="proportional" aria-pressed="false">Proportional</button></span>
+      <span style="color:var(--ink-3)">drag the red marker · the map re-renders as of that age</span></span>
+  </div>
+  <div class="tl-scroll"><svg id="tl" viewBox="0 0 1200 250" role="img" aria-label="Timeline from age 0 to 38 with three outer lanes for structure, conjuncture and events, an unconformity at ages 11 to 13, and a draggable present marker"></svg></div>
+</section>
+
+<main class="plan">
+
+<section class="sec reveal" id="thesis">
+  <div class="rail"><span class="eyebrow">Thesis</span><span class="n">01</span></div>
+  <div>
+    <h2>A subject-object machine</h2>
+    <p>Kegan's self-authorship is the move from things you <em>are</em> to things you <em>have</em>. A belief you are made of is invisible; you look through it. A belief rendered as a landform is something you stand beside and appraise. A map does this to a landscape you are standing in. The instrument converts subject into object one structure at a time, then lets the person decide what to do with the object. That deciding act, Frankfurt's second-order volition, is implemented as a button with a timestamp.</p>
+    <p class="pull">The claim is not that a person has a true self waiting to be found. The claim is that a person can be made legible to themselves, that legibility is measurable, and that a legible self makes better-calibrated judgements.</p>
+    <p><b>The map is hardware, not metaphor.</b> The hippocampal-entorhinal system that maps physical space also maps conceptual space and social space specifically, along axes of power and affiliation. The method of loci works because spatial memory is the strongest memory system we have. Putting "relationship with father" at a location recruits machinery built for locations.</p>
+    <p><b>Two perspectives, both documented.</b> Memories come in a field perspective (through your own eyes) or an observer perspective (watching yourself). Observer lowers intensity and shifts meaning toward the abstract; self-distancing turns a harmful "why" into a useful one. But observer perspective on trauma memories is also associated with avoidance. So there are two modes with a clinical rationale, and they alternate: Observer for meaning, Field for concrete processing.</p>
+    <p><b>Coherence has four kinds.</b> Habermas and Bluck: temporal, causal-motivational, thematic, and the cultural concept of biography. They map one-to-one onto the four surfaces above: the timeline, the edges, the districts, and the outer-circumstance lanes. The primary outcome measure already exists: Campbell's self-concept clarity, "the extent to which self-beliefs are clearly and confidently defined, internally consistent, and temporally stable."</p>
+  </div>
+</section>
+
+<section class="sec reveal" id="reframes">
+  <div class="rail"><span class="eyebrow">Ideology</span><span class="n">02</span></div>
+  <div>
+    <h2>Five reframes, stated plainly</h2>
+    <p><b>"Strip away" is the wrong verb.</b> Social mediation is not a film on top of a pure self; it is constitutive. The self is dialogical (Taylor, Mead, Vygotsky). Taste is habitus, "embodied history, internalised as second nature and so forgotten as history" (Bourdieu). Preferences are constructed at the moment of asking (Lichtenstein and Slovic; Ariely's coherent arbitrariness). There is nothing underneath to strip down to. The achievable goal is better: make the mediation visible, tag its source, and let the person re-author the weights. A preference that came from a first manager and would not survive anonymity is not deleted. It is relabelled, and the person decides. Stiegler's pharmakon is the frame: the same technics that proletarianise memory can capacitate it, depending on who owns the record. Local-first is the pharmacological choice, not a feature.</p>
+    <p><b>"True self" is a folk concept with a known bias.</b> People across cultures believe the true self is morally good, regardless of evidence (Strohminger, Knobe and Newman). An instrument promising to find it will be pulled toward flattery by the concept itself. Treat it as a regulative ideal. The operational replacements are measurable: Higgins' actual/ideal/ought gaps, Ryan and Connell's locus of regulation from external through introjected and identified to integrated, Sheldon and Elliot's self-concordance. "Alignment" here means shrinking the actual-ought gap on endorsed values and moving them toward integrated regulation.</p>
+    <p><b>Narrative is a tool, not a virtue.</b> Ricoeur and McAdams put narrative identity at the centre and Adler shows agency in narrative predicting mental-health gains. Strawson's "Against Narrativity" is the honest counterweight: many people are episodic, not diachronic, and forcing a story on them harms. Over-coherence smooths contradiction and forecloses. So: atlas, not autobiography. Gaps and contradictions are first-class objects. Coherence is offered, scored, and refusable.</p>
+    <p><b>Humans are the instrument, not the bottleneck.</b> The bottleneck is feedback. Life gives almost none on judgement, which makes taste and self-knowledge "wicked" learning environments (Hogarth; Kahneman and Klein). The instrument's real job is manufacturing kind ones: blind re-tests, delayed disclosure, forecast scoring. Compute is not the cost. Attention is, and rumination is the risk.</p>
+    <p><b>Built against the Hook model.</b> No streaks, no variable reward, no notification loop. Success metric: the person needs it less. The atlas is portable, exportable, deletable. Glissant's right to opacity: regions may be left unmapped on purpose, and the map records the refusal as a refusal. Foucault's hupomnemata, the Ignatian examen, Franklin's ledger: the instrument is old. What is new is instrumentation, scale, and the ability to compute over the record.</p>
+  </div>
+</section>
+
+<section class="sec reveal" id="disciplines">
+  <div class="rail"><span class="eyebrow">Principles</span><span class="n">03</span></div>
+  <div>
+    <h2>Five source disciplines, each principle made into a mechanism</h2>
+    <p>Condensed. The full tables with every principle are in the plan file.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Principle</th><th>Source</th><th>Becomes, in the instrument</th></tr></thead>
+      <tbody>
+        <tr><td>Every projection distorts; choose it and declare it</td><td>Monmonier 1991; Harley 1989</td><td>Layout is a chosen projection (co-occurrence / causal proximity / time). The active one is printed on the map.</td></tr>
+        <tr><td>What survives at each zoom is a decision</td><td>Töpfer &amp; Pillewizer 1966; Shneiderman 1996</td><td>Landmarks labelled at all zooms; minor features label when zoomed. Try zooming the map.</td></tr>
+        <tr><td>Silences are arguments</td><td>Harley 1989; Wood 1992</td><td>Unconformities and refusals are hatched on both surfaces, never hidden.</td></tr>
+        <tr><td>Five elements of a legible place</td><td>Lynch 1960</td><td>Paths = strategies; edges = boundaries; districts = domains; nodes = decisions; landmarks = pivotal events.</td></tr>
+        <tr><td>Superposition; cross-cutting</td><td>Steno 1669</td><td>Strata are reinforcing events, oldest at the bottom. A later reinterpretation is drawn as an intrusion, dated, that cuts but does not erase.</td></tr>
+        <tr><td>Unconformity</td><td>Hutton 1788</td><td>A gap in the record is an object with a kind: no-record, refused, unexamined.</td></tr>
+        <tr><td>Facies: same time, different rock</td><td>Walther 1894</td><td>Two people at one event lay down different strata. Compare mode shows both columns and never merges them.</td></tr>
+        <tr><td>Index fossils</td><td>Biostratigraphy</td><td>External anchors (a public event, a document) date the layers around them and align two accounts.</td></tr>
+        <tr><td>Duration is not clock time</td><td>Bergson 1889; Janet 1877</td><td>Timeline has a proportional scale where x ∝ ln(1 + age). Childhood widens. Toggle it above.</td></tr>
+        <tr><td>Three durations</td><td>Braudel 1958</td><td>Three outer lanes: structure, conjuncture, event. "What were the circumstances" is a layer, not a footnote.</td></tr>
+        <tr><td>Valid time vs transaction time</td><td>Snodgrass 1999</td><td>Every node has <em>formed</em> and <em>recorded</em>. The gap is a metric: years unnamed.</td></tr>
+        <tr><td>The log is the truth</td><td>Fowler 2005 (event sourcing)</td><td>Nothing is deleted. Retraction is an event. The map is a view.</td></tr>
+        <tr><td>Conceptual and social space use spatial codes</td><td>Constantinescu et al. 2016; Bellmund et al. 2018; Tavares et al. 2015</td><td>Locations are real cognitive handles. Districts and distance are elicitation, not decoration.</td></tr>
+        <tr><td>Field / observer perspective</td><td>Nigro &amp; Neisser 1983; Libby &amp; Eibach 2011; Kenny &amp; Bryant 2007</td><td>Two modes, alternating on purpose; the person's natural perspective per memory is recorded.</td></tr>
+        <tr><td>Distanced-why helps, immersed-why hurts</td><td>Kross, Ayduk &amp; Mischel 2005; Watkins 2008</td><td>Observer prompts are third-person past-tense. Field prompts are sensory present-tense and time-boxed.</td></tr>
+        <tr><td>Memory is social and collaboration inhibits</td><td>Hirst &amp; Echterhoff 2012; Cuc et al. 2007; Weldon &amp; Bellinger 1997</td><td>Compare mode elicits each account separately, always, before any joint session.</td></tr>
+        <tr><td>Calibration is scorable</td><td>Brier 1950; Tetlock 2005</td><td>The self-model forecasts the person; reality scores it. Authority is earned by prediction.</td></tr>
+        <tr><td>Constructs can be elicited without naming them</td><td>Kelly 1955; Hinkle 1965</td><td>Triads surface the dimensions a person judges with. Laddering climbs from construct to value. The repertory grid is a coordinate system of taste.</td></tr>
+        <tr><td>Introspection can degrade preference</td><td>Wilson &amp; Schooler 1991</td><td>The taste module uses triads and ratings, not essays.</td></tr>
+        <tr><td>Locus of regulation</td><td>Ryan &amp; Connell 1989</td><td>Every value and taste carries external / introjected / identified / integrated. The mediation hatch above draws it.</td></tr>
+        <tr><td>Causation has rungs</td><td>Pearl 2009; Hill 1965</td><td>Every edge carries association / intervention / counterfactual. A counterfactual rung requires the person's own counterfactual sentence.</td></tr>
+        <tr><td>Bias is machinery; the blind spot is real</td><td>Mercier &amp; Sperber 2011; Pronin et al. 2002</td><td>Biases are made visible and chosen against, not removed. People see others' patterns first, which is why compare mode works.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="sec reveal" id="ontology">
+  <div class="rail"><span class="eyebrow">Ontology</span><span class="n">04</span></div>
+  <div>
+    <h2>Six node types, two auxiliary, seven edge types, five epistemic states</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Type</th><th>What it is</th><th>Lynch</th><th>Geology</th><th>Key fields</th></tr></thead>
+      <tbody>
+        <tr><td>Event</td><td>Something that happened, dated</td><td>Landmark</td><td>Index fossil</td><td>age, intensity 1–3, circumstances, natural perspective</td></tr>
+        <tr><td>Person</td><td>Someone in the life</td><td>Landmark</td><td>Source rock</td><td>first appears, role</td></tr>
+        <tr><td>Belief</td><td>A proposition held about self or world</td><td>District bedrock</td><td>Stratum</td><td>formed, reinforcements, locus, status</td></tr>
+        <tr><td>Schema</td><td>A recurring fear or pattern (Young's vocabulary)</td><td>Peak</td><td>Mountain</td><td>formed, reinforcements, category</td></tr>
+        <tr><td>Value</td><td>What the person declares matters</td><td>Orientation</td><td>Cardinal point</td><td>locus, actual / ideal / ought, north candidate</td></tr>
+        <tr><td>Strategy</td><td>What the person does when a schema fires</td><td>Path</td><td>Road, erosion channel</td><td>formed, protects-against, cost</td></tr>
+        <tr><td>Taste</td><td>A preference object with provenance</td><td>Node</td><td>Specimen</td><td>first encounter, audience, if-nobody-knew, locus, blind vs labelled</td></tr>
+        <tr><td>Circumstance</td><td>Outer condition: structure, conjuncture, event</td><td>Boundary</td><td>Plate tectonics</td><td>duration, scope, years, source</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Edge</th><th>Meaning</th><th>Drawn</th></tr></thead>
+      <tbody>
+        <tr><td>caused</td><td>to would not exist without from; rung required</td><td>solid, arrow</td></tr>
+        <tr><td>reinforced</td><td>from added mass to to</td><td>thin solid</td></tr>
+        <tr><td>contradicts</td><td>from undermines to</td><td>dashed, red</td></tr>
+        <tr><td>inherited</td><td>taken over from a person, unexamined</td><td>dotted</td></tr>
+        <tr><td>protects</td><td>a strategy exists to hold off a schema</td><td>long dash</td></tr>
+        <tr><td>recut</td><td>a later reinterpretation cut through to</td><td>dash-dot, red</td></tr>
+        <tr><td>mediates</td><td>to is held partly for from</td><td>fine dotted</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Epistemic states.</b> Nothing enters the map as a fact. <em>Reported</em>: the person said it, in these words, at this age of telling. <em>Proposed</em>: the extractor inferred it, with receipts; drawn dashed, contributes half mass until endorsed. <em>Endorsed</em>: the person performed an explicit act. <em>Contested</em>: the person disputes it; it stays on the map, red-dotted, because the dispute is data. <em>Retracted</em>: removed from rendering, kept in the log. Every transition is an event with who, when and why.</p>
+    <p><b>Temporal model.</b> Valid time (when it formed) and transaction time (when it was told). Reinforcements are dated and weighted. Recuts are dated. Unconformities are intervals with a kind. Mass at time t is base plus the sum of reinforcement intensities up to t; elevation is a density over mass, which is why scrubbing the age above makes the continent grow.</p>
+    <p><b>Multi-observer.</b> An account is one observer's atlas. A shared event is anchored to an index fossil. Displacement is the vector between where the event sits in each account, drawn as a fault. Shared bedrock is a belief present in both accounts from different sides. Rules: separate elicitation first, consent per node, no merge, no adjudication.</p>
+  </div>
+</section>
+
+<section class="sec reveal" id="mechanics">
+  <div class="rail"><span class="eyebrow">Mechanics</span><span class="n">05</span></div>
+  <div>
+    <h2>How the instrument moves</h2>
+    <ul>
+      <li><b>Capture.</b> Local voice. Whisper-class transcription on device, diarised, with paralinguistic tags (pause length, laughter, pitch, trail-offs) because the register in which something is said is part of what was said. A local extractor proposes nodes and edges, each with at least one receipt, into a queue the person endorses, contests or edits. Interview scaffolds per type: McAdams' Life Story Interview for events; downward-arrow laddering for beliefs to schemas; PVQ or Valued Living Questionnaire for values vocabulary, then locus items; functional analysis for strategies; the triadic protocol for tastes; public timelines plus household events for circumstances.</li>
+      <li><b>Layout.</b> The person hand-places a few landmarks first; placing is elicitation. Embeddings over receipts lay out the rest, constrained by anchors, then a force relaxation with district gravity. The projection is a control and its distortion is declared.</li>
+      <li><b>Cartography.</b> Elevation from weighted mass density; hypsometric tints; coastline at the mass-one threshold, so an unreinforced structure is an islet. Districts are Voronoi cells merged by domain. Generalisation by zoom. Silences hatched. Terra incognita where the model suspects structure but has no receipts, labelled with the question it would ask. North is the declared orientation value.</li>
+      <li><b>Timeline.</b> Clock and proportional scales. Braudel lanes. Unconformities across all lanes. Reminiscence bump shaded, because density there is expected. Recorded-at ticks. The scrubber is a cross-section plane.</li>
+      <li><b>Core sample.</b> Per node: strata as bands (thickness is intensity, tint is the event's district, oldest at bottom), intrusions as diagonal cuts, erosion listed, receipts, edges in and out with type and rung, status, locus, mass, years unnamed.</li>
+      <li><b>Observer / Field.</b> Observer: whole continent, third-person prompts. Field: the map re-renders as of the node's age, fog to the neighbourhood, camera moves in, receipts in first-person present, sensory prompts, time-boxed, an exit ritual back. Trauma-flagged nodes require consent or a clinician flag before Field.</li>
+      <li><b>Role-play.</b> Speak as a schema (IFS unblending) or to a person node (empty chair). The map is the stage. The transcript becomes receipts tagged dialogue, dated today: evidence of the present relation, not the past.</li>
+      <li><b>Compare.</b> Separate elicitation, then both atlases side by side, shared events by index fossil, faults drawn, facies columns side by side, shared bedrock highlighted, the outer lanes shared. The conversation, if it happens, happens with both maps open.</li>
+      <li><b>Calibration loop.</b> The self-model forecasts choices and feelings; the person acts; Brier accumulates. The person also forecasts themselves, scored separately. Where forecasts fail, the map is wrong somewhere, and the failure points at the district.</li>
+      <li><b>Contradiction surfacing.</b> Contradicts edges listed per district with receipts. Three moves offered: endorse one side, hold both as an unexamined unconformity with a note, or recut with a new telling. Negative capability is an allowed answer.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec reveal" id="wedge">
+  <div class="rail"><span class="eyebrow">The wedge</span><span class="n">06</span></div>
+  <div>
+    <h2>Taste and discernment first</h2>
+    <p>Cheapest to test on yourself in a week. Strongest experimental literature of any module. No trauma gating. It produces the first landmass and every measure the atlas will later need, and it is a product people already want and cannot get from any recommender, because no recommender's objective is theirs.</p>
+    <ol>
+      <li><b>Element pool.</b> Three or four domains, 20–24 elements each. Half named by the person, half imported from actual choices where available. Stated and revealed sit side by side from the first minute.</li>
+      <li><b>Triadic elicitation.</b> Three elements: which two are alike, and how; how does the third differ. Ten to fifteen triads per domain. Output: bipolar constructs in the person's own words. Minimal reason-giving.</li>
+      <li><b>Laddering.</b> Per construct, "why does that side matter to you?" until it stops changing. Superordinate constructs are values and connect to value nodes.</li>
+      <li><b>Grid rating.</b> Every element on every construct. Principal components give the construct space. Each element has coordinates. The Taste district's layout is computed, not drawn.</li>
+      <li><b>Provenance.</b> Per element and construct: first encounter (age, via whom); the internalised audience ("who do you imagine watching when you choose this"); "would you still choose it if no one ever knew"; locus items.</li>
+      <li><b>Blind re-rating.</b> Strip identifiers where feasible and re-rate. The delta between labelled and blind is the mediation signal per element. (Plassmann's wine; Lee, Frederick and Ariely's beer.)</li>
+      <li><b>Disclosure timing.</b> For new elements, randomise whether prestige information arrives before or after the first rating. Estimate the person's susceptibility and show it.</li>
+      <li><b>Hume rubric.</b> Practice, comparison, delicacy, prejudice, sense: self-rated per domain. Where discernment is trained and where it is borrowed. Bourdieu's caveat printed beside it.</li>
+      <li><b>Forecasts.</b> The grid predicts the person's choice on ten fresh triads; the person chooses; Brier. Weekly thereafter, the person forecasts themselves; both scored.</li>
+      <li><b>Output.</b> The construct map, a mediation report, the list of constructs used but never named, and per element an endorse / retract / hold prompt.</li>
+    </ol>
+    <p><b>Ethics.</b> No normativity of taste. No ranking of people. No "good taste" score. A preference the person keeps after seeing where it came from is a legitimate outcome; it is now chosen. <b>Evaluation.</b> Test-retest of constructs at two and four weeks, forecast accuracy over time, self-concept clarity pre and post, and the change in the blind-versus-labelled delta for endorsed items.</p>
+  </div>
+</section>
+
+<section class="sec reveal" id="roadmap">
+  <div class="rail"><span class="eyebrow">Roadmap</span><span class="n">07</span></div>
+  <div>
+    <h2>Five stages, each gated</h2>
+    <div class="grid2">
+      <div><h3>v0 · Taste</h3><p>Solo. Steps 1–10 above. Renders the Taste district only.</p><p class="gate"><b>Gate</b>constructs stable at retest; forecasts beat chance; you use it twice a week unprompted.</p></div>
+      <div><h3>v1 · Atlas</h3><p>Solo. All six core types, voice capture, timeline with Braudel lanes, Observer mode, core sample.</p><p class="gate"><b>Gate</b>self-concept clarity rises; years-unnamed computed; no rise in rumination.</p></div>
+      <div><h3>v2 · Inhabit</h3><p>Field mode, role-play, contradiction surfacing, calibration loop over life forecasts.</p><p class="gate"><b>Gate</b>Field sessions time-boxed and rated; alternation shown to help on self-report and RRS.</p></div>
+      <div><h3>v3 · Compare</h3><p>Dyads. Separate elicitation, shared events, faults, facies, consent per node.</p><p class="gate"><b>Gate</b>two people sharing a hard event report increased understanding on a perspective-taking measure, and no increase in conflict.</p></div>
+      <div><h3>v4 · Commons</h3><p>Opt-in aggregated circumstance layer: what an era was like for a cohort, from many accounts, no individual data.</p><p class="gate"><b>Gate</b>only after v3 and a real privacy review.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec reveal" id="risks">
+  <div class="rail"><span class="eyebrow">Risks</span><span class="n">08</span></div>
+  <div>
+    <h2>Ten ways this fails, and the structural answer to each</h2>
+    <ul>
+      <li><b>Confabulation.</b> A model will generate a coherent, moving, false causal story. Answer: receipts, layers, half-mass for proposals, person-only endorsement, no counterfactual rung without the person's counterfactual.</li>
+      <li><b>Suggestion and false memory.</b> No leading prompts. Prompts are open, sensory and logged, so an interview can be audited for suggestion.</li>
+      <li><b>Iatrogenic rumination.</b> Register detection in transcripts, mode alternation, time boxes, the Ruminative Responses Scale tracked as a safety measure.</li>
+      <li><b>Over-coherence and foreclosure.</b> Unconformities first-class; no arc required; contradictions kept.</li>
+      <li><b>The moral true-self bias.</b> Named on the page. Measured with discrepancy and locus, never a "true self" score.</li>
+      <li><b>Self-exploitation.</b> Anti-engagement design, opacity rights, export and delete.</li>
+      <li><b>Compare mode as a weapon.</b> Consent per node, no merge, separate elicitation, and the instrument refuses to render one account without the other's consent.</li>
+      <li><b>Cultural specificity.</b> The Western individual is not the default self (Markus and Kitayama). Districts and elicitation are configurable.</li>
+      <li><b>Measurement gaming.</b> Performed coherence does not predict. Forecast scoring is the check.</li>
+      <li><b>Data sensitivity.</b> The most sensitive data a person owns. Local-first, encrypted at rest. The private protocol is assumed here and nothing works without it.</li>
+    </ul>
+    <p><b>Measures.</b> Primary: self-concept clarity at intake, four and twelve weeks. Secondary: RRS, Higgins discrepancies, locus distribution, narrative coherence coded per Reese et al., forecast Brier, metacognitive sensitivity, years unnamed, and for dyads the perspective-taking subscale of the IRI. Design: n-of-1 first, then a small within-subject series, then a waitlist comparison, with measures pre-registered before the second person uses it.</p>
+  </div>
+</section>
+
+<section class="sec reveal" id="reading">
+  <div class="rail"><span class="eyebrow">Reading</span><span class="n">09</span></div>
+  <div>
+    <h2>Sources to verify before citing</h2>
+    <p class="small" style="color:var(--ink-2)">Author, year, venue as I know them. Each link is a search, not a claim of a DOI. Contested findings are marked. The full list, grouped by section, is in the plan file.</p>
+    <div class="refs">
+      <h4>Cartography and visualisation</h4><ul>
+        <li><a href="https://scholar.google.com/scholar?q=Harley+Deconstructing+the+map+1989">Harley (1989) Deconstructing the map, <i>Cartographica</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Monmonier+How+to+Lie+with+Maps">Monmonier (1991) <i>How to Lie with Maps</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Lynch+The+Image+of+the+City+1960">Lynch (1960) <i>The Image of the City</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Bertin+Semiology+of+Graphics">Bertin (1967/1983) <i>Semiology of Graphics</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Topfer+Pillewizer+principles+of+selection+1966">Töpfer &amp; Pillewizer (1966) The principles of selection, <i>Cartographic Journal</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Gould+White+Mental+Maps+1974">Gould &amp; White (1974) <i>Mental Maps</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Wood+Everything+Sings+Maps+for+a+Narrative+Atlas">Wood (2010) <i>Everything Sings</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Harmon+You+Are+Here+Personal+Geographies">Harmon (2004) <i>You Are Here: Personal Geographies</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Shneiderman+The+eyes+have+it+1996">Shneiderman (1996) The eyes have it</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Pirolli+Card+sensemaking+process+leverage+points+2005">Pirolli &amp; Card (2005) The sensemaking process</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Kirsh+Maglio+epistemic+from+pragmatic+action">Kirsh &amp; Maglio (1994) Epistemic vs pragmatic action, <i>Cognitive Science</i></a></li>
+      </ul>
+      <h4>Geology and sedimentation</h4><ul>
+        <li><a href="https://en.wikipedia.org/wiki/Nicolas_Steno">Steno (1669) principles of stratigraphy</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Hutton+Theory+of+the+Earth+1788">Hutton (1788) Theory of the Earth</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Walther%27s_law">Walther's law of facies</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Husserl+Crisis+of+European+Sciences+sedimentation">Husserl (1936/1970) <i>Crisis</i>, sedimentation</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Bourdieu+Logic+of+Practice+habitus+embodied+history">Bourdieu (1980/1990) <i>The Logic of Practice</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Freud+Civilization+and+Its+Discontents+Rome">Freud (1930) <i>Civilization and Its Discontents</i></a></li>
+      </ul>
+      <h4>Temporality</h4><ul>
+        <li><a href="https://scholar.google.com/scholar?q=Ricoeur+Time+and+Narrative">Ricoeur (1984–88) <i>Time and Narrative</i>; (1992) <i>Oneself as Another</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Braudel+longue+duree+1958+Annales">Braudel (1958) La longue durée, <i>Annales</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Koselleck+Futures+Past">Koselleck (1979/2004) <i>Futures Past</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Lemlich+Subjective+acceleration+of+time+with+aging+1975">Lemlich (1975) Subjective acceleration of time with aging</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Rubin+Wetzler+Nebes+autobiographical+memory+across+the+lifespan">Rubin, Wetzler &amp; Nebes (1986) reminiscence bump</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Zimbardo+Boyd+Putting+time+in+perspective+1999">Zimbardo &amp; Boyd (1999) Putting time in perspective, <i>JPSP</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Allen+Maintaining+knowledge+about+temporal+intervals+1983">Allen (1983) Temporal intervals, <i>CACM</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Snodgrass+Developing+Time-Oriented+Database+Applications+in+SQL">Snodgrass (1999) bitemporal data</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Strawson+Against+Narrativity+Ratio+2004">Strawson (2004) Against narrativity, <i>Ratio</i></a></li>
+      </ul>
+      <h4>Memory, perspective, cognitive maps</h4><ul>
+        <li><a href="https://scholar.google.com/scholar?q=Constantinescu+OReilly+Behrens+gridlike+code+conceptual+knowledge+2016">Constantinescu, O'Reilly &amp; Behrens (2016) <i>Science</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Bellmund+Navigating+cognition+spatial+codes+for+human+thought+2018">Bellmund et al. (2018) Navigating cognition, <i>Science</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Tavares+A+map+for+social+navigation+in+the+human+brain+2015">Tavares et al. (2015) A map for social navigation, <i>Neuron</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Epstein+Patai+Julian+Spiers+cognitive+map+in+humans+2017">Epstein et al. (2017) The cognitive map in humans, <i>Nature Neuroscience</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Dresler+Mnemonic+training+reshapes+brain+networks+2017">Dresler et al. (2017) memory palace training, <i>Neuron</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Nigro+Neisser+Point+of+view+in+personal+memories+1983">Nigro &amp; Neisser (1983) Point of view in personal memories</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Libby+Eibach+Visual+perspective+in+mental+imagery+2011">Libby &amp; Eibach (2011) Visual perspective in mental imagery</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=McIsaac+Eich+Vantage+point+in+traumatic+memory+2004">McIsaac &amp; Eich (2004) Vantage point in traumatic memory</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Kenny+Bryant+Keeping+memories+at+an+arms+length+2007">Kenny &amp; Bryant (2007) observer perspective and avoidance</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Kross+Ayduk+Mischel+When+asking+why+does+not+hurt+2005">Kross, Ayduk &amp; Mischel (2005) When asking "why" does not hurt</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Watkins+Constructive+and+unconstructive+repetitive+thought+2008">Watkins (2008) Constructive and unconstructive repetitive thought</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Frattaroli+Experimental+disclosure+and+its+moderators+meta-analysis">Frattaroli (2006) expressive disclosure meta-analysis</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Yaden+overview+effect+awe+self-transcendent+experience+space+flight">Yaden et al. (2016) The overview effect</a><span class="c">small samples</span></li>
+        <li><a href="https://scholar.google.com/scholar?q=Campbell+Self-concept+clarity+measurement+personality+correlates+1996">Campbell et al. (1996) Self-concept clarity, <i>JPSP</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Habermas+Bluck+Getting+a+life+2000">Habermas &amp; Bluck (2000) Getting a life, <i>Psychological Bulletin</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Reese+Coherence+of+personal+narratives+across+the+lifespan+2011">Reese et al. (2011) Coherence of personal narratives</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=McAdams+McLean+Narrative+identity+2013">McAdams &amp; McLean (2013) Narrative identity</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Adler+Living+into+the+story+agency+coherence+2012">Adler (2012) Living into the story, <i>JPSP</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Hirst+Echterhoff+Remembering+in+conversations+2012">Hirst &amp; Echterhoff (2012) Remembering in conversations</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Cuc+Koppel+Hirst+Silence+is+not+golden+2007">Cuc, Koppel &amp; Hirst (2007) Silence is not golden</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Weldon+Bellinger+Collective+memory+collaborative+and+individual+processes+1997">Weldon &amp; Bellinger (1997) collaborative inhibition</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Paivio+Greenberg+Resolving+unfinished+business+empty-chair+1995">Paivio &amp; Greenberg (1995) empty-chair dialogue RCT</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Ecker+Ticic+Hulley+Unlocking+the+Emotional+Brain">Ecker, Ticic &amp; Hulley (2012) <i>Unlocking the Emotional Brain</i></a><span class="c">clinical, contested</span></li>
+        <li><a href="https://scholar.google.com/scholar?q=Markus+Kitayama+Culture+and+the+self+1991">Markus &amp; Kitayama (1991) Culture and the self</a></li>
+      </ul>
+      <h4>Judgement, taste, values, causation</h4><ul>
+        <li><a href="https://scholar.google.com/scholar?q=Salganik+Dodds+Watts+artificial+cultural+market+2006">Salganik, Dodds &amp; Watts (2006) MusicLab, <i>Science</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Plassmann+Marketing+actions+can+modulate+neural+representations+of+experienced+pleasantness">Plassmann et al. (2008) <i>PNAS</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Lee+Frederick+Ariely+Try+it+you%27ll+like+it+2006">Lee, Frederick &amp; Ariely (2006) Try it, you'll like it</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Wilson+Schooler+Thinking+too+much+1991">Wilson &amp; Schooler (1991) Thinking too much, <i>JPSP</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Ariely+Loewenstein+Prelec+Coherent+arbitrariness+2003">Ariely, Loewenstein &amp; Prelec (2003) Coherent arbitrariness</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Lichtenstein+Slovic+The+Construction+of+Preference">Lichtenstein &amp; Slovic (2006) <i>The Construction of Preference</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Kelly+The+Psychology+of+Personal+Constructs+1955">Kelly (1955) <i>The Psychology of Personal Constructs</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Fransella+Bell+Bannister+Manual+for+Repertory+Grid+Technique">Fransella, Bell &amp; Bannister (2004) repertory grid manual</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Hume+Of+the+Standard+of+Taste">Hume (1757) Of the Standard of Taste</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Bourdieu+Distinction+social+critique+judgement+of+taste">Bourdieu (1979/1984) <i>Distinction</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Ryan+Connell+Perceived+locus+of+causality+and+internalization+1989">Ryan &amp; Connell (1989) locus of causality, <i>JPSP</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Higgins+Self-discrepancy+a+theory+relating+self+and+affect+1987">Higgins (1987) Self-discrepancy</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Sheldon+Elliot+self-concordance+model+1999">Sheldon &amp; Elliot (1999) self-concordance</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Strohminger+Knobe+Newman+The+true+self+2017">Strohminger, Knobe &amp; Newman (2017) The true self</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Frankfurt+Freedom+of+the+will+and+the+concept+of+a+person">Frankfurt (1971) Freedom of the will and the concept of a person</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Kegan+In+Over+Our+Heads">Kegan (1982; 1994)</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Kahneman+Klein+Conditions+for+intuitive+expertise+2009">Kahneman &amp; Klein (2009) Conditions for intuitive expertise</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Tetlock+Expert+Political+Judgment">Tetlock (2005) <i>Expert Political Judgment</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Fleming+Lau+How+to+measure+metacognition+2014">Fleming &amp; Lau (2014) How to measure metacognition</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Mercier+Sperber+Why+do+humans+reason+2011">Mercier &amp; Sperber (2011) Why do humans reason?</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Morewedge+Debiasing+decisions+single+training+intervention+2015">Morewedge et al. (2015) Debiasing decisions</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Dalege+Causal+Attitude+Network+model+2016">Dalege et al. (2016) Causal Attitude Network model</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Borsboom+Cramer+Network+analysis+structure+of+psychopathology+2013">Borsboom &amp; Cramer (2013) network approach</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Pearl+Causality+2009">Pearl (2009) <i>Causality</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Mani+Mullainathan+Shafir+Zhao+Poverty+impedes+cognitive+function">Mani et al. (2013) Poverty impedes cognitive function</a><span class="c">contested</span></li>
+      </ul>
+      <h4>Ideology and technics</h4><ul>
+        <li><a href="https://scholar.google.com/scholar?q=Seaver+Computing+Taste+algorithms+music+recommendation">Seaver (2022) <i>Computing Taste</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Zuboff+Age+of+Surveillance+Capitalism">Zuboff (2019) <i>The Age of Surveillance Capitalism</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Stiegler+For+a+New+Critique+of+Political+Economy+proletarianization">Stiegler (2010) <i>For a New Critique of Political Economy</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Han+Psychopolitics+neoliberalism+new+technologies+of+power">Han (2017) <i>Psychopolitics</i>; (2015) <i>The Transparency Society</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Ihde+Technology+and+the+Lifeworld">Ihde (1990) <i>Technology and the Lifeworld</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Verbeek+Moralizing+Technology">Verbeek (2011) <i>Moralizing Technology</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Foucault+Technologies+of+the+Self+1988">Foucault (1988) Technologies of the self; (1997) Self writing</a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Glissant+Poetics+of+Relation+right+to+opacity">Glissant (1990/1997) <i>Poetics of Relation</i></a></li>
+        <li><a href="https://scholar.google.com/scholar?q=Taylor+The+Ethics+of+Authenticity">Taylor (1991) <i>The Ethics of Authenticity</i></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Terra Cognita · plan v0.1 · working title</span>
+  <span>Specimen A and B are fiction built to exercise every mechanic</span>
+  <span>Nothing here has been verified against a primary source; verify before citing</span>
+</footer>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+// Specimen A — a synthetic life, born 1988, age 38. Not a real person.
+const SPECIMEN = {
+  birthYear: 1988, age: 38, told: 38, north: 'v_honesty',
+  domains: {
+    family:    { label: 'Family' },
+    belonging: { label: 'Belonging' },
+    body:      { label: 'Body' },
+    work:      { label: 'Work' },
+    money:     { label: 'Money' },
+    taste:     { label: 'Taste' }
+  },
+  nodes: [
+    // ---- events (formed = age) ----
+    { id:'e_silences', type:'event', label:"Father's long silences begin", domain:'family', formed:5, intensity:2, x:300, y:175, status:'reported',
+      quotes:[{age:38, text:"He'd come home and just not be there. I learned to read the back of his head."}],
+      now:"I am five. He is home and the house is quieter with him in it. I am learning the back of his head." },
+    { id:'e_piano', type:'event', label:'Piano lessons; praised for it', domain:'taste', formed:6, intensity:1, x:470, y:555, status:'reported',
+      quotes:[{age:38, text:'The first time anyone looked at me like I was worth looking at, I was playing.'}],
+      now:'I am six. My hands are doing something and the room is looking at me. I want it to keep looking.' },
+    { id:'e_move', type:'event', label:'Moved cities; lost first friends', domain:'belonging', formed:8, intensity:3, x:560, y:140, status:'reported',
+      quotes:[{age:38, text:'Nobody asked me. One day the house was boxes.'}],
+      now:'I am eight. The house is boxes. Nobody asked me. I am very quiet, so nobody notices I am here to be left.' },
+    { id:'e_illness', type:'event', label:'Mother ill for six months', domain:'family', formed:9, intensity:3, x:370, y:300, status:'reported',
+      quotes:[{age:38, text:'I made the toast. I was very good at being no trouble.'}],
+      now:'I am nine. I make the toast. If I am no trouble, nothing else will go wrong.' },
+    { id:'e_bully', type:'event', label:'Mocked for my accent at the new school', domain:'belonging', formed:14, intensity:2, x:650, y:255, status:'reported',
+      quotes:[{age:38, text:'I fixed the accent in a month. I fixed the rest of me later.'}],
+      now:'I am fourteen. The canteen is loud and it is laughing in my direction. I will fix the accent by Friday.' },
+    { id:'e_band', type:'event', label:'First band; first applause', domain:'taste', formed:16, intensity:2, x:700, y:545, status:'reported',
+      quotes:[{age:38, text:'Three people clapped. I have been trying to get back to that room ever since.'}],
+      now:'I am sixteen. Three people are clapping. It is the loudest quiet I have ever felt.' },
+    { id:'e_crash', type:'event', label:'Father loses his job (2008)', domain:'money', formed:20, intensity:3, x:880, y:470, status:'reported', circ:['2008 crash','Recession'],
+      quotes:[{age:38, text:"He didn't tell us for three months. I found the letter."}],
+      now:'I am twenty. There is a letter in the drawer dated three months ago. I am reading it twice.' },
+    { id:'e_degree', type:'event', label:'Dropped music for the safe degree', domain:'work', formed:21, intensity:2, x:800, y:385, status:'reported',
+      quotes:[{age:38, text:'It felt like adulthood. It was fear wearing a suit.'}],
+      now:'I am twenty-one. I am signing the form. This is what grown-ups do. My hands are cold.' },
+    { id:'e_job', type:'event', label:'First job; overwork praised', domain:'work', formed:23, intensity:2, x:900, y:230, status:'reported',
+      quotes:[{age:38, text:'My manager said I was a machine. I took it as love.'}],
+      now:"I am twenty-three. He says I'm a machine. Something in me sits up straighter." },
+    { id:'e_breakup', type:'event', label:"Partner leaves: 'you're never here'", domain:'belonging', formed:27, intensity:3, x:520, y:335, status:'reported',
+      quotes:[{age:38, text:"She wasn't wrong. I was at work even at dinner."}],
+      now:"I am twenty-seven. She is saying I'm never here. I am, right now, composing an email in my head." },
+    { id:'e_panic', type:'event', label:'Panic attack in a meeting', domain:'body', formed:29, intensity:3, x:360, y:470, status:'reported',
+      quotes:[{age:38, text:"My body filed a complaint I hadn't read."}],
+      now:'I am twenty-nine. The room is tilting. Everyone is still talking about Q3.' },
+    { id:'e_therapy', type:'event', label:'Therapy begins', domain:'body', formed:30, intensity:2, x:300, y:545, status:'reported',
+      quotes:[{age:38, text:"First time I said the word 'afraid' out loud since I was nine."}],
+      now:"I am thirty. I have just said 'afraid' out loud. The chair is very still." },
+    { id:'e_pandemic', type:'event', label:'Lockdown, alone in the flat', domain:'belonging', formed:32, intensity:2, x:720, y:140, status:'reported', circ:['Lockdown','Pandemic'],
+      quotes:[{age:38, text:"Terrifying for a week. Then the quietest I've ever felt."}],
+      now:'I am thirty-two. The street is empty. I have not spoken today and I am, strangely, fine.' },
+    { id:'e_quit', type:'event', label:'Quit; went freelance', domain:'money', formed:34, intensity:2, x:830, y:560, status:'reported',
+      quotes:[{age:38, text:'I did the math for a year. Then I did it in a day.'}],
+      now:'I am thirty-four. I have pressed send. The spreadsheet was right and I am still shaking.' },
+    { id:'e_piano2', type:'event', label:'Piano again, badly, happily', domain:'taste', formed:36, intensity:2, x:605, y:560, status:'reported',
+      quotes:[{age:38, text:"I'm bad at it now. I don't care. That's new."}],
+      now:'I am thirty-six. I am playing badly. Nobody is watching. I keep going.' },
+    { id:'e_talk', type:'event', label:'Asked my father about 2008', domain:'family', formed:37, intensity:3, x:430, y:215, status:'reported',
+      quotes:[{age:38, text:"He said 'I thought I was protecting you.' I'd built a whole religion on his silence."}],
+      now:'I am thirty-seven. He is saying he was protecting us. I am watching a building I made come down quietly.' },
+
+    // ---- people (formed = first appears) ----
+    { id:'p_father', type:'person', label:'Father', domain:'family', formed:0, x:245, y:255, status:'reported',
+      quotes:[{age:38, text:'Provider. Quiet. I never once saw him scared, which I now know was the point.'}] },
+    { id:'p_mother', type:'person', label:'Mother', domain:'family', formed:0, x:330, y:365, status:'reported',
+      quotes:[{age:38, text:'Warm, then ill, then careful.'}] },
+    { id:'p_friend', type:'person', label:'Childhood friend, lost at 8', domain:'belonging', formed:4, x:500, y:95, status:'reported',
+      quotes:[{age:38, text:"I don't remember his face. I remember the leaving."}] },
+    { id:'p_mentor', type:'person', label:'First manager', domain:'work', formed:23, x:965, y:300, status:'reported',
+      quotes:[{age:38, text:'He wore a watch that cost a car. I wanted to be looked at the way people looked at him.'}] },
+    { id:'p_partner', type:'person', label:'Ex-partner', domain:'belonging', formed:25, x:575, y:405, status:'reported',
+      quotes:[{age:38, text:"She read difficult books and I started reading them so we'd have something to be in together."}] },
+    { id:'p_therapist', type:'person', label:'Therapist', domain:'body', formed:30, x:245, y:605, status:'reported',
+      quotes:[{age:38, text:"She asked what the toast was for. I didn't answer for a minute."}] },
+
+    // ---- beliefs ----
+    { id:'b_needed', type:'belief', label:'Being needed is being loved', domain:'family', formed:9, x:425, y:340, status:'endorsed', locus:'introjected',
+      reinf:[{age:23, ev:'e_job', i:2},{age:27, ev:'e_breakup', i:2}],
+      quotes:[{age:38, text:"If I'm useful, I'm safe. I know that's not the same as loved. I act like it is."}] },
+    { id:'b_useful', type:'belief', label:'Praise only counts for useful things', domain:'work', formed:6, x:760, y:300, status:'proposed', locus:'introjected',
+      reinf:[{age:21, ev:'e_degree', i:2},{age:23, ev:'e_job', i:2}],
+      quotes:[{age:38, text:"The applause at sixteen didn't count. The promotion did. I've never asked why."}] },
+    { id:'b_money', type:'belief', label:'Money is safety; art is risk', domain:'money', formed:20, x:955, y:470, status:'contested', locus:'introjected',
+      reinf:[{age:21, ev:'e_degree', i:3},{age:32, ev:'e_pandemic', i:1}],
+      quotes:[{age:38, text:'I found the letter and decided the world was a trapdoor.'}] },
+    { id:'b_quiet', type:'belief', label:"If I'm quiet I won't be sent away", domain:'belonging', formed:8, x:470, y:205, status:'endorsed', locus:'introjected',
+      reinf:[{age:9, ev:'e_illness', i:2},{age:14, ev:'e_bully', i:2}],
+      quotes:[{age:38, text:'I made myself small enough to pack.'}] },
+    { id:'b_body', type:'belief', label:'My body is an instrument for work', domain:'body', formed:23, x:435, y:475, status:'contested', locus:'introjected',
+      reinf:[],
+      quotes:[{age:38, text:'I treated it like a laptop. It treated me like a warning light.'}] },
+    { id:'b_good', type:'belief', label:"I like what I'm good at", domain:'taste', formed:6, x:555, y:650, status:'proposed', locus:'introjected',
+      reinf:[{age:16, ev:'e_band', i:2}],
+      quotes:[{age:38, text:'I thought that was taste. It was a scoreboard.'}] },
+    { id:'b_leave', type:'belief', label:'People leave when they see the real one', domain:'belonging', formed:8, x:625, y:360, status:'endorsed', locus:'introjected',
+      reinf:[{age:14, ev:'e_bully', i:2},{age:27, ev:'e_breakup', i:3}],
+      quotes:[{age:38, text:'So I show the useful one and keep the real one in a drawer with the letter.'}] },
+
+    // ---- schemas (Young vocabulary) ----
+    { id:'s_abandon', type:'schema', label:'Abandonment', domain:'belonging', formed:8, x:565, y:245, status:'endorsed', young:'Abandonment / instability',
+      reinf:[{age:9, ev:'e_illness', i:2},{age:14, ev:'e_bully', i:2},{age:27, ev:'e_breakup', i:3},{age:32, ev:'e_pandemic', i:1}],
+      quotes:[{age:38, text:'Every goodbye is the first one.'}] },
+    { id:'s_standards', type:'schema', label:'Unrelenting standards', domain:'work', formed:6, x:835, y:300, status:'endorsed', young:'Unrelenting standards',
+      reinf:[{age:21, ev:'e_degree', i:2},{age:23, ev:'e_job', i:3},{age:29, ev:'e_panic', i:2}],
+      quotes:[{age:38, text:'Good enough has never once felt like enough.'}] },
+    { id:'s_depriv', type:'schema', label:'Emotional deprivation', domain:'family', formed:5, x:305, y:235, status:'proposed', young:'Emotional deprivation',
+      reinf:[{age:9, ev:'e_illness', i:3},{age:27, ev:'e_breakup', i:2}],
+      quotes:[{age:38, text:"I don't expect warmth. I expect to earn it."}] },
+    { id:'s_erase', type:'schema', label:'Self-erasure', domain:'family', formed:8, x:455, y:275, status:'proposed', young:'Subjugation',
+      reinf:[{age:14, ev:'e_bully', i:2},{age:21, ev:'e_degree', i:2}],
+      quotes:[{age:38, text:'Ask me what I want and watch me answer with what you want.'}] },
+    { id:'s_scarce', type:'schema', label:'Scarcity script', domain:'money', formed:20, x:905, y:540, status:'proposed', young:'Vulnerability to harm',
+      reinf:[{age:32, ev:'e_pandemic', i:2},{age:34, ev:'e_quit', i:1}],
+      quotes:[{age:38, text:'There is never enough runway. There was never a runway.'}] },
+
+    // ---- values ----
+    { id:'v_honesty', type:'value', label:'Honesty', domain:'body', formed:30, x:250, y:455, status:'endorsed', locus:'integrated', higgins:'actual',
+      reinf:[{age:37, ev:'e_talk', i:3}],
+      quotes:[{age:38, text:"The only thing I've found that makes the drawer unnecessary."}] },
+    { id:'v_craft', type:'value', label:'Craft', domain:'taste', formed:6, x:650, y:600, status:'endorsed', locus:'identified', higgins:'ideal',
+      reinf:[{age:16, ev:'e_band', i:2},{age:34, ev:'e_quit', i:2},{age:36, ev:'e_piano2', i:2}],
+      quotes:[{age:38, text:'Making a thing well, with nobody grading it.'}] },
+    { id:'v_security', type:'value', label:'Security', domain:'money', formed:20, x:825, y:445, status:'endorsed', locus:'introjected', higgins:'ought',
+      reinf:[{age:21, ev:'e_degree', i:2},{age:32, ev:'e_pandemic', i:2}],
+      quotes:[{age:38, text:"I hold this one the way you hold a coat someone handed you at a funeral."}] },
+    { id:'v_liked', type:'value', label:'Being liked', domain:'belonging', formed:14, x:705, y:330, status:'contested', locus:'external', higgins:'ought',
+      reinf:[{age:23, ev:'e_job', i:2}],
+      quotes:[{age:38, text:"I don't think this is mine. I think it's the canteen's."}] },
+    { id:'v_solitude', type:'value', label:'Solitude', domain:'belonging', formed:32, x:770, y:130, status:'endorsed', locus:'integrated', higgins:'actual',
+      reinf:[{age:34, ev:'e_quit', i:1}],
+      quotes:[{age:38, text:'Found it by accident in a locked-down flat. Kept it on purpose.'}] },
+    { id:'v_beauty', type:'value', label:'Beauty', domain:'taste', formed:36, x:690, y:645, status:'endorsed', locus:'identified', higgins:'ideal',
+      reinf:[],
+      quotes:[{age:38, text:'Came back with the piano. I had filed it under childish.'}] },
+
+    // ---- strategies (paths) ----
+    { id:'st_overwork', type:'strategy', label:'Overwork', domain:'work', formed:23, x:895, y:350, status:'endorsed', protects:['s_standards','b_needed'],
+      reinf:[{age:27, ev:'e_breakup', i:2},{age:29, ev:'e_panic', i:2}],
+      quotes:[{age:38, text:"If I'm the last one in the office, no one can say I wasn't there. Except her."}] },
+    { id:'st_quiet', type:'strategy', label:'Going quiet', domain:'family', formed:8, x:380, y:155, status:'endorsed', protects:['s_erase','s_abandon'],
+      reinf:[{age:14, ev:'e_bully', i:2},{age:27, ev:'e_breakup', i:1}],
+      quotes:[{age:38, text:'His trick. I learned it by watching.'}] },
+    { id:'st_leave', type:'strategy', label:'Leaving first', domain:'belonging', formed:27, x:640, y:425, status:'endorsed', protects:['s_abandon'],
+      reinf:[{age:32, ev:'e_pandemic', i:1}],
+      quotes:[{age:38, text:"If I go first, it's a decision, not a loss."}] },
+    { id:'st_humour', type:'strategy', label:'Humour as deflection', domain:'belonging', formed:14, x:705, y:225, status:'proposed', protects:['s_abandon','s_erase'],
+      reinf:[{age:23, ev:'e_job', i:1},{age:27, ev:'e_breakup', i:1}],
+      quotes:[{age:38, text:'Make them laugh before they can look.'}] },
+    { id:'st_practice', type:'strategy', label:'Practice as refuge', domain:'taste', formed:6, x:525, y:605, status:'endorsed', protects:['s_depriv'],
+      reinf:[{age:16, ev:'e_band', i:2},{age:36, ev:'e_piano2', i:3}],
+      quotes:[{age:38, text:'Scales are a room nobody else is in.'}] },
+
+    // ---- tastes (the wedge) ----
+    { id:'t_minimal', type:'taste', label:'Minimal piano (Satie, Glass)', domain:'taste', formed:16, x:575, y:700, status:'endorsed', locus:'identified',
+      prov:{age:16, via:'a bandmate'}, ifNobodyKnew:'yes', audience:[], labelled:5, blind:5,
+      quotes:[{age:38, text:"I'd listen to it alone in a bunker. Checked."}] },
+    { id:'t_watches', type:'taste', label:'Expensive watches', domain:'taste', formed:23, x:745, y:690, status:'contested', locus:'external',
+      prov:{age:23, via:'first manager'}, ifNobodyKnew:'no', audience:['first manager','colleagues'], labelled:4, blind:2,
+      quotes:[{age:38, text:"I wanted the watch so I'd be looked at like him. Without the name on the dial it's a clock."}] },
+    { id:'t_novels', type:'taste', label:'Difficult novels', domain:'taste', formed:27, x:655, y:700, status:'proposed', locus:'introjected',
+      prov:{age:27, via:'ex-partner'}, ifNobodyKnew:'unsure', audience:['ex-partner'], labelled:4, blind:3,
+      quotes:[{age:38, text:'Three of them I actually loved. The rest I finished.'}] },
+    { id:'t_loud', type:'taste', label:'Loud rooms (dislike)', domain:'taste', formed:14, x:520, y:690, status:'endorsed', locus:'integrated',
+      prov:{age:14, via:'the canteen'}, ifNobodyKnew:'yes', audience:[], labelled:1, blind:1,
+      quotes:[{age:38, text:'My body decided this at fourteen. I agree with it.'}] }
+  ],
+
+  // from, to, type, rung
+  edges: [
+    ['e_silences','s_depriv','caused','counterfactual'],
+    ['p_father','st_quiet','inherited','association'],
+    ['e_move','st_quiet','caused','association'],
+    ['e_piano','b_useful','caused','association'],
+    ['e_piano','b_good','caused','association'],
+    ['e_piano','st_practice','caused','counterfactual'],
+    ['e_piano','s_standards','caused','association'],
+    ['e_piano','v_craft','caused','counterfactual'],
+    ['e_move','s_abandon','caused','counterfactual'],
+    ['e_move','b_quiet','caused','association'],
+    ['e_move','b_leave','caused','association'],
+    ['p_friend','s_abandon','reinforced','association'],
+    ['e_illness','s_depriv','reinforced','association'],
+    ['e_illness','b_needed','caused','counterfactual'],
+    ['e_illness','s_abandon','reinforced','association'],
+    ['e_illness','b_quiet','reinforced','association'],
+    ['p_mother','b_needed','inherited','association'],
+    ['e_bully','s_abandon','reinforced','association'],
+    ['e_bully','b_leave','reinforced','association'],
+    ['e_bully','st_humour','caused','counterfactual'],
+    ['e_bully','v_liked','caused','association'],
+    ['e_bully','s_erase','reinforced','association'],
+    ['e_bully','b_quiet','reinforced','association'],
+    ['e_bully','t_loud','caused','association'],
+    ['e_band','b_good','reinforced','association'],
+    ['e_band','v_craft','reinforced','association'],
+    ['e_band','st_practice','reinforced','association'],
+    ['e_band','t_minimal','caused','association'],
+    ['e_crash','b_money','caused','counterfactual'],
+    ['e_crash','s_scarce','caused','counterfactual'],
+    ['e_crash','v_security','caused','association'],
+    ['p_father','v_security','inherited','association'],
+    ['p_father','b_money','inherited','association'],
+    ['e_degree','b_money','reinforced','association'],
+    ['e_degree','s_erase','reinforced','association'],
+    ['e_degree','v_craft','contradicts','association'],
+    ['e_degree','s_standards','reinforced','association'],
+    ['v_security','e_degree','caused','counterfactual'],
+    ['b_useful','e_degree','caused','association'],
+    ['e_job','st_overwork','caused','counterfactual'],
+    ['e_job','b_body','caused','association'],
+    ['e_job','s_standards','reinforced','association'],
+    ['e_job','b_useful','reinforced','association'],
+    ['e_job','b_needed','reinforced','association'],
+    ['e_job','v_liked','reinforced','association'],
+    ['p_mentor','t_watches','caused','association'],
+    ['p_mentor','b_useful','reinforced','association'],
+    ['v_liked','t_watches','mediates','association'],
+    ['v_liked','t_novels','mediates','association'],
+    ['e_breakup','s_abandon','reinforced','association'],
+    ['e_breakup','b_leave','reinforced','association'],
+    ['e_breakup','st_leave','caused','counterfactual'],
+    ['e_breakup','b_needed','reinforced','association'],
+    ['p_partner','t_novels','caused','association'],
+    ['st_overwork','e_breakup','caused','counterfactual'],
+    ['e_panic','b_body','contradicts','counterfactual'],
+    ['e_panic','e_therapy','caused','counterfactual'],
+    ['st_overwork','e_panic','caused','association'],
+    ['e_therapy','v_honesty','caused','counterfactual'],
+    ['e_therapy','s_depriv','contradicts','association'],
+    ['e_pandemic','v_solitude','caused','counterfactual'],
+    ['e_pandemic','s_scarce','reinforced','association'],
+    ['e_pandemic','s_abandon','reinforced','association'],
+    ['e_quit','b_money','contradicts','counterfactual'],
+    ['e_quit','v_craft','reinforced','association'],
+    ['e_quit','s_scarce','reinforced','association'],
+    ['v_solitude','e_quit','caused','association'],
+    ['e_piano2','b_good','contradicts','counterfactual'],
+    ['e_piano2','v_beauty','caused','counterfactual'],
+    ['e_piano2','st_practice','reinforced','association'],
+    ['e_piano2','v_craft','reinforced','association'],
+    ['e_talk','b_money','recut','counterfactual'],
+    ['e_talk','v_security','recut','association'],
+    ['e_talk','s_scarce','contradicts','association'],
+    ['e_talk','s_depriv','recut','counterfactual'],
+    ['e_talk','v_honesty','reinforced','association'],
+    ['s_abandon','st_leave','protects','association'],
+    ['s_erase','st_quiet','protects','association'],
+    ['s_standards','st_overwork','protects','association'],
+    ['s_abandon','st_humour','protects','association'],
+    ['b_leave','st_leave','caused','association'],
+    ['b_quiet','s_erase','reinforced','association'],
+    ['b_needed','st_overwork','reinforced','association']
+  ],
+
+  unconformities: [ { from:11, to:13, kind:'no-record', note:"I don't remember those years. Nothing happened, I think." } ],
+  unexamined: { points:[[330,395],[432,382],[448,432],[352,447]], label:'unexamined · the years after her illness' },
+
+  circumstances: {
+    structure:   [ {label:'Single-income household', from:0, to:20}, {label:'First-generation university family', from:0, to:38} ],
+    conjuncture: [ {label:'Dial-up to broadband', from:13, to:16}, {label:'Recession', from:20, to:24}, {label:'Feed era: smartphone + social', from:23, to:38}, {label:'Pandemic', from:32, to:33.5} ],
+    events:      [ {label:'2008 crash', age:20}, {label:'Lockdown', age:32} ]
+  },
+
+  // Specimen B — the father. Separate account. Ghosts are placed in A's map space at the district where B holds the same event.
+  accountB: {
+    label:'Father', birthYear:1960,
+    ghosts: [
+      { id:'g_silences', shared:'e_silences', kind:'event', label:'Working nights', domain:'work', x:905, y:180, ageB:33,
+        quote:"I was working nights. I thought quiet was rest. I didn't know I'd gone silent.", displacement:'For him this sits in Work, not Family.' },
+      { id:'g_crash', shared:'e_crash', kind:'event', label:'Hid the job loss', domain:'family', x:298, y:322, ageB:48,
+        quote:"I hid it for three months because I'd watched my own father fall apart in front of us. I was not going to be that.", displacement:'For him this sits in Family, not Money.' },
+      { id:'g_talk', shared:'e_talk', kind:'event', label:'The conversation', domain:'family', x:448, y:250, ageB:65,
+        quote:"I didn't know he'd carried it for seventeen years. I thought I'd carried it alone.", displacement:'Same district. Small displacement, large mass on both sides.' },
+      { id:'g_provide', shared:'b_needed', kind:'bedrock', label:'Providing is love', domain:'family', x:398, y:328, ageB:null,
+        quote:"You show up with the money. That's how you say it.", displacement:'Shared bedrock: the same stratum, laid down from the other side.' }
+    ]
+  }
+};
+if (typeof module !== 'undefined') module.exports = SPECIMEN;
+(function(){
+const S = SPECIMEN, W = 1200, H = 760;
+const byId = new Map(S.nodes.map(n => [n.id, n]));
+const EDGES = S.edges.map(([from,to,type,rung],i) => ({ id:'x'+i, from, to, type, rung }));
+const MAJOR = new Set(['schema','belief','value']);
+const CAUSAL = new Set(['caused','reinforced','recut','inherited','protects']);
+const ARROW = new Set(['caused','reinforced','recut','contradicts','inherited']);
+const DOMS = Object.keys(S.domains);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const state = { age:S.age, mode:'observer', edges:'causal', mediation:false, compare:false, selected:null, scale:'clock', ageBeforeField:null };
+
+// ---------- helpers
+const mass = (n,t) => { if (n.formed > t) return 0; let m;
+  if (n.type==='event') m = n.intensity; else if (n.type==='person') m = 1.5; else if (n.type==='taste') m = 1;
+  else m = 1 + (n.reinf||[]).filter(r => r.age <= t).reduce((a,r) => a + r.i, 0);
+  return n.status==='proposed' ? m*0.5 : m; };
+const radius = (n,t) => n.type==='person' ? 7 : 5 + 2.4*Math.sqrt(Math.max(mass(n,t), 0.5));
+const visible = t => S.nodes.filter(n => n.formed <= t);
+const pts = t => visible(t).map(n => ({ x:n.x, y:n.y, m:mass(n,t) }));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+function glyph(type, r){
+  switch(type){
+    case 'event': return `M0,${-r} L${r},0 L0,${r} L${-r},0 Z`;
+    case 'person': return `M${-r},0 a${r},${r} 0 1,0 ${2*r},0 a${r},${r} 0 1,0 ${-2*r},0`;
+    case 'belief': return `M${-r*0.9},${-r*0.9} h${r*1.8} v${r*1.8} h${-r*1.8} Z`;
+    case 'schema': return `M0,${-r*1.05} L${r*1.02},${r*0.72} L${-r*1.02},${r*0.72} Z`;
+    case 'value': return `M0,${-r*1.1} L${r*0.32},${-r*0.32} L${r*1.1},0 L${r*0.32},${r*0.32} L0,${r*1.1} L${-r*0.32},${r*0.32} L${-r*1.1},0 L${-r*0.32},${-r*0.32} Z`;
+    case 'strategy': { const w=r*1.35,h=r*0.5,rx=r*0.3; return `M${-w+rx},${-h} h${2*w-2*rx} a${rx},${rx} 0 0 1 ${rx},${rx} v${2*h-2*rx} a${rx},${rx} 0 0 1 ${-rx},${rx} h${-(2*w-2*rx)} a${rx},${rx} 0 0 1 ${-rx},${-rx} v${-(2*h-2*rx)} a${rx},${rx} 0 0 1 ${rx},${-rx} Z`; }
+    case 'taste': return `M${-r},0 a${r},${r} 0 1,0 ${2*r},0 a${r},${r} 0 1,0 ${-2*r},0`;
+  }
+}
+function wrap(label, max){ const words = label.split(' '); const lines=[]; let cur='';
+  for (const w of words){ if ((cur+' '+w).trim().length > max && cur){ lines.push(cur); cur = w; } else cur = (cur+' '+w).trim(); }
+  if (cur) lines.push(cur); return lines; }
+
+// ---------- map scaffold
+const svg = d3.select('#map').attr('viewBox', `0 0 ${W} ${H}`).style('color','var(--ink)');
+const defs = svg.append('defs');
+defs.html(`
+  <filter id="wobble" x="-4%" y="-4%" width="108%" height="108%"><feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="3" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <filter id="grainf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  <pattern id="hatch-dense" patternUnits="userSpaceOnUse" width="3.5" height="3.5" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3.5" stroke="currentColor" stroke-width="1.5"/></pattern>
+  <pattern id="hatch-light" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/></pattern>
+  <pattern id="hatch-faint" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width=".8"/></pattern>
+  <pattern id="hatch-unex" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="currentColor" stroke-width=".8" stroke-opacity=".55"/></pattern>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="currentColor"/></marker>
+  <marker id="arrowAccent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto" style="color:var(--accent)"><path d="M0,1 L9,5 L0,9 z" fill="currentColor"/></marker>
+  <clipPath id="coastClip"><path id="coastClipPath"/></clipPath>`);
+svg.append('rect').attr('width',W).attr('height',H).attr('fill','var(--sea)');
+const gRoot = svg.append('g').attr('id','root');
+const gLand = gRoot.append('g').attr('class','land').attr('filter','url(#wobble)');
+const gDist = gRoot.append('g').attr('class','districts').attr('clip-path','url(#coastClip)');
+const gUnex = gRoot.append('g').attr('class','unex');
+const gDl   = gRoot.append('g').attr('class','dlabels');
+const gEdges= gRoot.append('g').attr('class','edges');
+const gGhost= gRoot.append('g').attr('class','ghosts');
+const gNodes= gRoot.append('g').attr('class','nodes');
+svg.append('rect').attr('class','grain').attr('width',W).attr('height',H).attr('filter','url(#grainf)');
+// compass: north = declared value
+const comp = svg.append('g').attr('class','compass').attr('transform','translate(1118,66)');
+comp.append('circle').attr('r',22).attr('stroke-opacity',.5);
+comp.append('path').attr('d','M0,-22 L5,0 L0,6 L-5,0 Z').attr('fill','var(--ink)').attr('fill-opacity',.85);
+comp.append('line').attr('x1',-22).attr('x2',22).attr('y1',0).attr('y2',0).attr('stroke-opacity',.35);
+comp.append('text').attr('y',-28).attr('text-anchor','middle').text('N');
+comp.append('text').attr('y',40).attr('text-anchor','middle').text('N = ' + byId.get(S.north).label.toUpperCase() + ' (DECLARED)');
+// unexamined region
+gUnex.append('path').attr('d','M'+S.unexamined.points.map(p=>p.join(',')).join(' L')+' Z');
+const uc = d3.polygonCentroid(S.unexamined.points);
+gUnex.append('text').attr('x',uc[0]).attr('y',uc[1]+3).attr('text-anchor','middle').text(S.unexamined.label);
+
+// ---------- density
+const density = d3.contourDensity().x(d=>d.x).y(d=>d.y).weight(d=>d.m).size([W,H]).bandwidth(42);
+const probe = density.thresholds(40)(pts(S.age));
+const maxV = d3.max(probe, c => c.value);
+const TH = [0.10,0.20,0.33,0.48,0.66,0.85].map(f => f*maxV);
+const geo = d3.geoPath();
+
+function renderLand(t){
+  const cs = density.thresholds(TH)(pts(t));
+  const sel = gLand.selectAll('path').data(cs, (d,i)=>i);
+  sel.enter().append('path').attr('class',(d,i)=>'e'+i+(i===0?' coast':'')).merge(sel).attr('d', d => geo(d) || '');
+  d3.select('#coastClipPath').attr('d', cs[0] ? (geo(cs[0])||'') : '');
+}
+function renderDistricts(t){
+  const vs = visible(t);
+  const idx = new Map(vs.map((d,i)=>[d.id,i]));
+  const vor = d3.Delaunay.from(vs, d=>d.x, d=>d.y).voronoi([0,0,W,H]);
+  const sel = gDist.selectAll('path').data(vs, d=>d.id);
+  sel.exit().remove();
+  sel.enter().append('path').merge(sel).attr('class', d=>'dom-'+d.domain).attr('d', d => vor.renderCell(idx.get(d.id)));
+  const labs = DOMS.map(dm => { const ns = vs.filter(n=>n.domain===dm); if(!ns.length) return null;
+    const tm = d3.sum(ns, n=>Math.max(mass(n,t),.2));
+    return { dm, x:d3.sum(ns,n=>n.x*Math.max(mass(n,t),.2))/tm, y:d3.sum(ns,n=>n.y*Math.max(mass(n,t),.2))/tm - 34 }; }).filter(Boolean);
+  const ls = gDl.selectAll('text').data(labs, d=>d.dm);
+  ls.exit().remove();
+  ls.enter().append('text').attr('class','district-lbl').merge(ls).attr('x',d=>d.x).attr('y',d=>d.y).text(d=>S.domains[d.dm].label);
+}
+function edgePath(a,b,t){
+  const dx=b.x-a.x, dy=b.y-a.y, L=Math.hypot(dx,dy)||1, nx=-dy/L, ny=dx/L, bend=Math.min(38, L*0.16);
+  const mx=(a.x+b.x)/2+nx*bend, my=(a.y+b.y)/2+ny*bend;
+  const ra=radius(a,t)+3, rb=radius(b,t)+6;
+  const la=Math.hypot(mx-a.x,my-a.y)||1, lb=Math.hypot(mx-b.x,my-b.y)||1;
+  const sx=a.x+(mx-a.x)/la*ra, sy=a.y+(my-a.y)/la*ra, ex=b.x+(mx-b.x)/lb*rb, ey=b.y+(my-b.y)/lb*rb;
+  return `M${sx.toFixed(1)},${sy.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${ex.toFixed(1)},${ey.toFixed(1)}`;
+}
+function renderEdges(t){
+  const es = state.edges==='none' ? [] : EDGES.filter(e => (state.edges==='all' || CAUSAL.has(e.type)) && byId.get(e.from).formed<=t && byId.get(e.to).formed<=t);
+  const sel = gEdges.selectAll('path').data(es, d=>d.id);
+  sel.exit().remove();
+  sel.enter().append('path').attr('data-from',d=>d.from).attr('data-to',d=>d.to).merge(sel)
+    .attr('class', d=>d.type + (d.from===state.selected||d.to===state.selected ? ' lit':''))
+    .attr('marker-end', d => ARROW.has(d.type) ? ((d.type==='contradicts'||d.type==='recut') ? 'url(#arrowAccent)' : 'url(#arrow)') : null)
+    .attr('d', d => edgePath(byId.get(d.from), byId.get(d.to), t));
+}
+function renderNodes(t){
+  const vs = visible(t);
+  const sel = gNodes.selectAll('g.node').data(vs, d=>d.id);
+  sel.exit().remove();
+  const ent = sel.enter().append('g')
+    .attr('class', d=>`node t-${d.type} st-${d.status}${d.locus?' lo-'+d.locus:''}${MAJOR.has(d.type)?' major':''}`)
+    .attr('transform', d=>`translate(${d.x},${d.y})`).attr('tabindex',0).attr('role','button').attr('aria-label', d=>`${d.label}, ${d.type}`);
+  ent.append('path').attr('class','halo');
+  ent.append('path').attr('class', d=>'glyph dom-'+d.domain);
+  ent.append('path').attr('class','hatch');
+  ent.filter(d=>d.type==='taste').append('circle').attr('r',2.2).attr('fill','currentColor').attr('pointer-events','none');
+  ent.append('text').attr('class', d=>'lbl'+(MAJOR.has(d.type)?'':' minor'));
+  ent.on('mouseenter', (ev,d)=>hover(d, ev)).on('mousemove', (ev)=>moveTip(ev)).on('mouseleave', ()=>hover(null))
+     .on('click', (ev,d)=>{ ev.stopPropagation(); select(d.id); })
+     .on('keydown', (ev,d)=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); select(d.id); } });
+  const all = ent.merge(sel);
+  all.select('.glyph').attr('d', d=>glyph(d.type, radius(d,t)));
+  all.select('.hatch').attr('d', d=>glyph(d.type, radius(d,t)));
+  all.select('.halo').attr('d', d=>glyph(d.type, radius(d,t)+4.5));
+  all.select('text.lbl').each(function(d){ const lines = wrap(d.label, MAJOR.has(d.type)?20:26); const el=d3.select(this); el.selectAll('tspan').remove();
+    lines.forEach((ln,i)=>el.append('tspan').attr('x',0).attr('y', radius(d,t)+13+i*12).text(ln)); });
+  all.classed('sel', d=>d.id===state.selected);
+}
+function renderGhosts(){
+  const gs = S.accountB.ghosts;
+  const sel = gGhost.selectAll('g.ghost').data(gs, d=>d.id);
+  const ent = sel.enter().append('g').attr('class','ghost');
+  ent.append('path').attr('class', d=>d.kind==='bedrock'?'gtie':'gline').attr('d', d=>{ const a=byId.get(d.shared); return `M${a.x},${a.y} L${d.x},${d.y}`; });
+  ent.append('path').attr('class','gglyph').attr('transform', d=>`translate(${d.x},${d.y})`).attr('d', d=>glyph(d.kind==='bedrock'?'belief':'event', 8))
+     .on('click', (ev,d)=>{ ev.stopPropagation(); select(d.id); }).on('mouseenter',(ev,d)=>showTip(ev, `<b>${esc(d.label)}</b><span>Father's account · ${d.kind==='bedrock'?'shared bedrock':'shared event'}</span>`)).on('mousemove',moveTip).on('mouseleave',hideTip);
+  ent.append('text').attr('x',d=>d.x).attr('y',d=>d.y+20).text(d=>d.label);
+}
+function renderMap(){ const t=state.age; renderLand(t); renderDistricts(t); renderEdges(t); renderNodes(t); }
+
+// ---------- tooltip
+const tip = document.getElementById('tip'), mapwrap = document.getElementById('mapwrap');
+function showTip(ev, html){ tip.innerHTML = html; tip.classList.add('on'); moveTip(ev); }
+function moveTip(ev){ const r = mapwrap.getBoundingClientRect(); let x = ev.clientX - r.left + 14, y = ev.clientY - r.top + 14; if (x > r.width-250) x -= 270; if (y > r.height-80) y -= 90; tip.style.left = x+'px'; tip.style.top = y+'px'; }
+function hideTip(){ tip.classList.remove('on'); }
+function hover(d, ev){
+  gNodes.selectAll('.node').classed('hov', n => d && n.id===d.id);
+  if (d){ svg.classed('lit', true); gEdges.selectAll('path').classed('lit', e => e.from===d.id||e.to===d.id||e.from===state.selected||e.to===state.selected);
+    showTip(ev, `<b>${esc(d.label)}</b><span>${d.type} · ${d.type==='event'?'age '+d.formed:'formed at '+d.formed} · ${d.status}${d.locus?' · '+d.locus:''}</span>`); }
+  else { svg.classed('lit', !!state.selected); gEdges.selectAll('path').classed('lit', e => e.from===state.selected||e.to===state.selected); hideTip(); }
+}
+
+// ---------- zoom
+const zoom = d3.zoom().scaleExtent([0.85, 4]).on('zoom', ev => { gRoot.attr('transform', ev.transform); svg.attr('data-z', ev.transform.k >= 1.5 ? 'near' : 'far'); });
+svg.call(zoom).on('dblclick.zoom', null);
+svg.on('click', () => { if (state.selected) select(null); });
+function zoomTo(x, y, k, dur){ const tr = d3.zoomIdentity.translate(W/2, H/2).scale(k).translate(-x, -y); (reduced||!dur ? svg : svg.transition().duration(dur).ease(d3.easeCubicOut)).call(zoom.transform, tr); }
+document.getElementById('btnReset').addEventListener('click', () => { select(null); if (state.mode==='field') setMode('observer'); setAge(S.age); zoomTo(W/2, H/2, 1, 600); });
+
+// ---------- selection, modes, fog
+function neighbours(id){ const s = new Set([id]); EDGES.forEach(e => { if (e.from===id) s.add(e.to); if (e.to===id) s.add(e.from); }); return s; }
+function select(id){
+  state.selected = id;
+  gNodes.selectAll('.node').classed('sel', n => n.id===id);
+  svg.classed('lit', !!id); gEdges.selectAll('path').classed('lit', e => e.from===id||e.to===id);
+  if (id && !id.startsWith('g_') && state.mode==='field') enterField(byId.get(id)); else clearFog();
+  renderPanel(); d3.select('#tl').selectAll('.ev').classed('sel', d => d.id===id);
+}
+function enterField(d){
+  if (state.ageBeforeField===null) state.ageBeforeField = state.age;
+  setAge(d.formed, true);
+  const nb = neighbours(d.id);
+  svg.classed('fog', true);
+  gNodes.selectAll('.node').classed('dim', n => !nb.has(n.id));
+  zoomTo(d.x, d.y, 1.8, 900);
+}
+function clearFog(){ svg.classed('fog', false); gNodes.selectAll('.node').classed('dim', false); }
+function setMode(m){
+  state.mode = m; seg('modeSeg', m);
+  if (m==='field'){ if (state.selected && !state.selected.startsWith('g_')) enterField(byId.get(state.selected)); }
+  else { clearFog(); if (state.ageBeforeField!==null){ setAge(state.ageBeforeField); state.ageBeforeField=null; } zoomTo(W/2,H/2,1,700); }
+  renderPanel();
+}
+function seg(id, v){ document.querySelectorAll('#'+id+' button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v===v))); }
+document.querySelectorAll('#modeSeg button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.v)));
+document.querySelectorAll('#edgeSeg button').forEach(b => b.addEventListener('click', () => { state.edges=b.dataset.v; seg('edgeSeg', state.edges); renderEdges(state.age); }));
+document.getElementById('tgMediation').addEventListener('change', e => { state.mediation = e.target.checked; svg.classed('mediation', state.mediation); });
+document.getElementById('tgCompare').addEventListener('change', e => { state.compare = e.target.checked; svg.classed('compare', state.compare); if (!state.compare && state.selected && state.selected.startsWith('g_')) select(null); else renderPanel(); });
+
+// ---------- age
+function setAge(a, fromField){
+  a = Math.max(0, Math.min(S.age, Math.round(a)));
+  state.age = a;
+  document.getElementById('ageTag').textContent = a; document.getElementById('ageNum').textContent = a;
+  renderMap(); renderTimelineAge();
+  if (state.selected && !fromField) renderPanel();
+  if (state.mode==='field' && state.selected && !state.selected.startsWith('g_')) { const nb = neighbours(state.selected); gNodes.selectAll('.node').classed('dim', n => !nb.has(n.id)); }
+}
+
+// ---------- panel
+const panel = document.getElementById('panel');
+const domColor = dm => `var(--d-${dm})`;
+function badge(txt, cls, style){ return `<span class="badge ${cls||''}" ${style?`style="${style}"`:''}>${esc(txt)}</span>`; }
+function edgeRow(e, other, dir){
+  const n = byId.get(other); const words = {caused:'caused', reinforced:'reinforced', contradicts:'contradicts', inherited:'inherited', protects:'protects against', recut:'recut', mediates:'mediates'}[e.type];
+  const rung = {association:'assoc.', intervention:'interv.', counterfactual:'counterf.'}[e.rung];
+  return `<li><span class="et">${words}</span><button type="button" data-go="${n.id}">${esc(n.label)}</button><span class="rung" title="Pearl rung: ${e.rung}">${rung}</span></li>`;
+}
+function defaultPanel(){
+  return `<h4>How to read this map</h4>
+  <p class="small" style="margin:6px 0 10px">Land is computed from the graph, not drawn. <b>Elevation</b> is mass: one contour per reinforcing event, so the peaks are the structures most often confirmed. <b>Districts</b> are domains of life, washed by colour. <b>Glyphs</b> are node types; dashed outlines are proposals the person has not endorsed, red-dotted are contested. <b>Edges</b> are typed and carry a causal rung. Hatched ground is a silence the map refuses to fill.</p>
+  <p class="small" style="margin:0 0 4px">The age marker below is a cross-section plane: drag it and the continent re-forms as it was.</p>
+  <h4 style="margin-top:14px">Try</h4>
+  <ul class="try">
+    <li><b>time</b><button type="button" data-try="age8">Drag the age back to 8 and watch three islets where a continent was</button></li>
+    <li><b>peak</b><button type="button" data-try="abandon">Pull a core sample from the highest peak, Abandonment</button></li>
+    <li><b>field</b><button type="button" data-try="field">Switch to Field and stand on the move at age 8</button></li>
+    <li><b>fault</b><button type="button" data-try="compare">Lay the father's account over the job loss</button></li>
+    <li><b>taste</b><button type="button" data-try="taste">Turn on the mediation hatch and look at the Taste island</button></li>
+  </ul>
+  <p class="mini" style="margin-top:14px">Specimen A is fiction built to exercise every mechanic. The plan below explains each one.</p>`;
+}
+function coreSample(d){
+  const bands = [];
+  const causer = EDGES.filter(e=>e.to===d.id && e.type==='caused' && byId.get(e.from).type==='event').map(e=>byId.get(e.from)).sort((a,b)=>a.formed-b.formed)[0];
+  bands.push({ age:d.formed, i:1, dom: causer?causer.domain:d.domain, label: causer ? causer.label : 'first appears' });
+  (d.reinf||[]).filter(r=>r.age<=state.age).forEach(r => { const ev = byId.get(r.ev); bands.push({ age:r.age, i:r.i, dom:ev.domain, label:ev.label }); });
+  bands.sort((a,b)=>a.age-b.age);
+  const cuts = EDGES.filter(e=>e.to===d.id && e.type==='recut' && byId.get(e.from).formed<=state.age).map(e=>byId.get(e.from));
+  const erod = EDGES.filter(e=>e.to===d.id && e.type==='contradicts' && byId.get(e.from).formed<=state.age).map(e=>byId.get(e.from));
+  const trunc = s => s.length > 34 ? s.slice(0,33) + '…' : s;
+  const bh = b => 10 + 7*b.i; const total = bands.reduce((a,b)=>a+bh(b),0) + 8;
+  let y = total - 4; let svgb = '';
+  bands.forEach(b => { const h = bh(b); y -= h; svgb += `<rect class="band" x="12" y="${y}" width="34" height="${h}" fill="${domColor(b.dom)}" fill-opacity=".75"/><text x="56" y="${y+h/2+3.5}">age ${b.age} · ${esc(trunc(b.label))}</text>`; });
+  let cutsvg = ''; cuts.forEach((c,i)=>{ cutsvg += `<line class="intr" x1="8" y1="${8+i*6}" x2="50" y2="${total-8-i*6}"/><text x="56" y="${total+14+i*12}" fill="var(--accent)">recut at ${c.formed} · ${esc(trunc(c.label))}</text>`; });
+  const extra = cuts.length ? 12*cuts.length + 6 : 0;
+  return `<h4>Core sample</h4><div class="core"><svg viewBox="0 0 300 ${total+extra+4}" role="img" aria-label="Stratigraphic column of ${esc(d.label)}"><rect class="col" x="12" y="4" width="34" height="${total-8}"/>${svgb}${cutsvg}</svg></div>` +
+    (erod.length ? `<p class="mini" style="margin:4px 0 0">eroded by: ${erod.map(e=>esc(e.label)).join('; ')}</p>` : '');
+}
+function nodePanel(d){
+  const field = state.mode==='field';
+  const inc = EDGES.filter(e=>e.to===d.id && byId.get(e.from).formed<=state.age);
+  const out = EDGES.filter(e=>e.from===d.id && byId.get(e.to).formed<=state.age);
+  let h = `<div class="badges">${badge(d.type)}${badge(S.domains[d.domain].label,'dom',`color:${domColor(d.domain)}`)}${badge(d.status,'st-'+d.status)}${d.young?badge(d.young):''}</div>`;
+  h += `<h3>${esc(d.label)}</h3>`;
+  if (field){ const ev = d.type==='event' ? d : EDGES.filter(e=>e.to===d.id && byId.get(e.from).type==='event' && byId.get(e.from).formed<=state.age).map(e=>byId.get(e.from)).sort((a,b)=>a.formed-b.formed)[0];
+    h += `<p class="mini" style="margin:0 0 8px;letter-spacing:.14em;text-transform:uppercase">You are here · age ${state.age}</p>`;
+    if (ev && ev.now) h += `<p class="quote">${esc(ev.now)}<span class="age">${ev===d?'':esc(ev.label)+' · '}told in the present tense, field perspective</span></p>`; }
+  h += `<dl>`;
+  h += `<dt>${d.type==='event'?'age':'formed'}</dt><dd>${d.formed}${d.type==='event'&&d.intensity?` · intensity ${d.intensity}`:''}</dd>`;
+  h += `<dt>told at</dt><dd>${S.told}${d.type!=='event'&&d.type!=='person'?` · ${S.told-d.formed} years unnamed`:''}</dd>`;
+  if (d.type!=='event'&&d.type!=='person') h += `<dt>mass</dt><dd>${mass(d,state.age).toFixed(1)} at age ${state.age}</dd>`;
+  if (d.higgins) h += `<dt>self</dt><dd>${d.higgins}</dd>`;
+  if (d.protects) h += `<dt>protects</dt><dd>${d.protects.map(p=>esc(byId.get(p).label)).join(' · ')}</dd>`;
+  if (d.circ) h += `<dt>circumstance</dt><dd>${d.circ.map(esc).join(' · ')}</dd>`;
+  h += `</dl>`;
+  if (d.locus){ const L=['external','introjected','identified','integrated']; h += `<h4>Locus of regulation</h4><div class="gauge">${L.map(l=>`<span class="${l===d.locus?'on':''}">${l}</span>`).join('')}</div>`; }
+  if (d.type==='taste'){ h += `<h4>Provenance</h4><div class="tastebox"><b>first met</b><span>age ${d.prov.age} · via ${esc(d.prov.via)}</span><b>audience</b><span>${d.audience.length?d.audience.map(esc).join(', '):'none named'}</span><b>if nobody knew</b><span>${d.ifNobodyKnew}</span><b>labelled / blind</b><span>${d.labelled} / ${d.blind}${d.labelled!==d.blind?' · delta '+(d.labelled-d.blind):' · no delta'}</span></div>`; }
+  if (d.type!=='event'&&d.type!=='person'&&d.type!=='taste') h += coreSample(d);
+  if (d.quotes && d.quotes.length){ h += `<h4>Receipts</h4>` + d.quotes.map(q=>`<p class="quote">${esc(q.text)}<span class="age">told at ${q.age} · transcript A</span></p>`).join(''); }
+  if (state.compare){ const g = S.accountB.ghosts.find(g=>g.shared===d.id); if (g) h += `<h4>Second account · Father</h4><p class="quote">${esc(g.quote)}<span class="age">${g.ageB?`at ${g.ageB} · `:''}${esc(g.displacement)}</span></p>`; }
+  if (inc.length) h += `<h4>Shaped by</h4><ul class="edgelist">${inc.map(e=>edgeRow(e,e.from)).join('')}</ul>`;
+  if (out.length) h += `<h4>Shapes</h4><ul class="edgelist">${out.map(e=>edgeRow(e,e.to)).join('')}</ul>`;
+  return h;
+}
+function ghostPanel(g){
+  const a = byId.get(g.shared);
+  return `<div class="badges">${badge('account B · Father')}${badge(g.kind==='bedrock'?'shared bedrock':'shared event')}${badge(S.domains[g.domain].label,'dom',`color:${domColor(g.domain)}`)}</div>
+  <h3>${esc(g.label)}</h3>
+  <dl><dt>anchored to</dt><dd><button type="button" data-go="${a.id}" style="appearance:none;border:0;background:none;padding:0;font:inherit;color:var(--link);text-decoration:underline;cursor:pointer">${esc(a.label)}</button></dd>${g.ageB?`<dt>his age</dt><dd>${g.ageB} (A was ${a.formed})</dd>`:''}<dt>displacement</dt><dd>${esc(g.displacement)}</dd></dl>
+  <h4>His receipt</h4><p class="quote">${esc(g.quote)}<span class="age">transcript B · elicited separately</span></p>
+  <h4>Hers, for the same stratum</h4><p class="quote">${esc(a.quotes[0].text)}<span class="age">transcript A · told at ${a.quotes[0].age}</span></p>
+  <p class="mini">Same time, different rock. Neither account is adjudicated; the instrument makes both legible.</p>`;
+}
+function renderPanel(){
+  const sel = state.selected;
+  panel.classList.toggle('field', state.mode==='field' && !!sel && !sel.startsWith('g_'));
+  if (!sel) panel.innerHTML = defaultPanel();
+  else if (sel.startsWith('g_')) panel.innerHTML = ghostPanel(S.accountB.ghosts.find(g=>g.id===sel));
+  else panel.innerHTML = nodePanel(byId.get(sel));
+  panel.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => { const id=b.dataset.go; if (byId.get(id).formed>state.age && state.mode!=='field') setAge(byId.get(id).formed); select(id); }));
+  panel.querySelectorAll('[data-try]').forEach(b => b.addEventListener('click', () => tryIt(b.dataset.try)));
+}
+function tryIt(k){
+  if (k==='age8'){ setAge(8); zoomTo(W/2,H/2,1,600); }
+  if (k==='abandon'){ setMode('observer'); setAge(S.age); select('s_abandon'); zoomTo(565,245,1.4,800); }
+  if (k==='field'){ setMode('field'); select('e_move'); }
+  if (k==='compare'){ setMode('observer'); setAge(S.age); document.getElementById('tgCompare').checked = true; state.compare = true; svg.classed('compare', true); select('g_crash'); zoomTo(600,400,1.15,800); }
+  if (k==='taste'){ setMode('observer'); setAge(S.age); document.getElementById('tgMediation').checked = true; state.mediation = true; svg.classed('mediation', true); select('t_watches'); zoomTo(640,660,1.7,800); }
+}
+
+// ---------- timeline
+const TL = { w:1200, h:250, x0:70, x1:1160, axisY:206 };
+const tl = d3.select('#tl');
+const xs = a => state.scale==='clock' ? TL.x0 + (TL.x1-TL.x0)*a/S.age : TL.x0 + (TL.x1-TL.x0)*Math.log1p(a)/Math.log1p(S.age);
+const xinv = px => { const t = Math.max(0, Math.min(1, (px-TL.x0)/(TL.x1-TL.x0))); return state.scale==='clock' ? t*S.age : Math.expm1(t*Math.log1p(S.age)); };
+tl.append('defs').html(`<pattern id="hatch-tl" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="currentColor" stroke-width=".8" stroke-opacity=".5"/></pattern>`);
+tl.style('color','var(--ink)');
+const gBump = tl.append('g').attr('class','bump'); const gUnc = tl.append('g').attr('class','unc'); const gShade = tl.append('g').attr('class','shade');
+const gBands = tl.append('g'); const gOuter = tl.append('g').attr('class','outer'); const gAxis = tl.append('g').attr('class','axis'); const gEv = tl.append('g'); const gScrub = tl.append('g').attr('class','scrub');
+tl.append('text').attr('class','lane-lbl').attr('x',8).attr('y',34).text('structure');
+tl.append('text').attr('class','lane-lbl').attr('x',8).attr('y',60).text('conjuncture');
+tl.append('text').attr('class','lane-lbl').attr('x',8).attr('y',84).text('outer events');
+tl.append('text').attr('class','lane-lbl').attr('x',8).attr('y',144).text('this life');
+const DOMY = Object.fromEntries(DOMS.map((d,i)=>[d, 116+i*11]));
+function renderTimeline(){
+  // bump
+  const b = gBump.selectAll('g').data([1]); const be = b.enter().append('g'); be.append('rect'); be.append('text');
+  gBump.select('rect').attr('x',xs(10)).attr('y',104).attr('width',xs(30)-xs(10)).attr('height',88);
+  gBump.select('text').attr('x',xs(10)+6).attr('y',114).text('REMINISCENCE BUMP · 10–30 · density expected here');
+  // unconformities
+  const u = gUnc.selectAll('g').data(S.unconformities); const ue = u.enter().append('g'); ue.append('rect'); ue.append('text');
+  const um = ue.merge(u);
+  um.select('rect').attr('x',d=>xs(d.from)).attr('y',14).attr('width',d=>xs(d.to)-xs(d.from)).attr('height',186);
+  um.select('text').attr('x',d=>(xs(d.from)+xs(d.to))/2).attr('y',100).attr('text-anchor','middle').text(d=>`UNCONFORMITY · ${d.from}–${d.to} · ${d.kind}`);
+  // bands
+  const bands = [...S.circumstances.structure.map(c=>({...c,lane:'structure',y:24})), ...S.circumstances.conjuncture.map(c=>({...c,lane:'conjuncture',y:50}))];
+  const bs = gBands.selectAll('g.band').data(bands, d=>d.label); const bse = bs.enter().append('g').attr('class',d=>'band '+d.lane); bse.append('rect'); bse.append('text');
+  const bm = bse.merge(bs);
+  bm.select('rect').attr('x',d=>xs(d.from)).attr('y',d=>d.y).attr('width',d=>Math.max(2,xs(d.to)-xs(d.from))).attr('height',14);
+  bm.select('text').attr('x',d=>xs(d.from)+5).attr('y',d=>d.y+10.5).text(d=>d.label);
+  // stagger overlapping structure labels
+  bm.filter(d=>d.label==='First-generation university family').select('rect').attr('y',24).attr('height',6);
+  bm.filter(d=>d.label==='First-generation university family').select('text').attr('y',20).attr('x',xs(21)+5);
+  bm.filter(d=>d.label==='Single-income household').select('rect').attr('y',32).attr('height',8);
+  bm.filter(d=>d.label==='Single-income household').select('text').attr('y',39);
+  // outer events
+  const oe = gOuter.selectAll('g').data(S.circumstances.events, d=>d.label); const oee = oe.enter().append('g'); oee.append('circle').attr('r',3.2); oee.append('text');
+  const om = oee.merge(oe); om.select('circle').attr('cx',d=>xs(d.age)).attr('cy',80); om.select('text').attr('x',d=>xs(d.age)+7).attr('y',84).text(d=>d.label + ' · ' + (S.birthYear+d.age));
+  // axis
+  gAxis.selectAll('*').remove();
+  gAxis.append('line').attr('x1',TL.x0).attr('x2',TL.x1).attr('y1',TL.axisY).attr('y2',TL.axisY);
+  const ticks = d3.range(0, S.age+1, 1);
+  const tg = gAxis.selectAll('g.tick').data(ticks).enter().append('g').attr('class','tick').attr('transform',d=>`translate(${xs(d)},${TL.axisY})`);
+  tg.append('line').attr('y2',d=>d%5===0?7:3);
+  tg.filter(d=>d%5===0||d===S.age).append('text').attr('y',19).attr('text-anchor','middle').text(d=>d);
+  gAxis.append('text').attr('x',TL.x0).attr('y',238).text('age');
+  [1990,2000,2010,2020].forEach(y => { gAxis.append('text').attr('x',xs(y-S.birthYear)).attr('y',238).attr('text-anchor','middle').attr('fill','var(--ink-3)').text(y); });
+  // events
+  const evs = S.nodes.filter(n=>n.type==='event');
+  const es = gEv.selectAll('g.ev').data(evs, d=>d.id); const ese = es.enter().append('g').attr('class','ev');
+  ese.append('path').attr('class',d=>'g dom-'+d.domain).attr('d',d=>glyph('event', 4+1.6*d.intensity));
+  ese.append('text').attr('y',-9).text(d=>`${d.label} · ${d.formed}`);
+  ese.on('click',(ev,d)=>{ ev.stopPropagation(); if (d.formed>state.age && state.mode!=='field') setAge(d.formed); select(d.id); });
+  ese.merge(es).attr('transform',d=>`translate(${xs(d.formed)},${DOMY[d.domain]})`).classed('future',d=>d.formed>state.age).select('text').attr('text-anchor',d=>xs(d.formed)>900?'end':'start');
+  // shade + scrub
+  renderTimelineAge();
+}
+function renderTimelineAge(){
+  const x = xs(state.age);
+  const sh = gShade.selectAll('rect').data([1]); sh.enter().append('rect').merge(sh).attr('x',x).attr('y',12).attr('width',Math.max(0,TL.x1+8-x)).attr('height',190);
+  gEv.selectAll('.ev').classed('future', d=>d.formed>state.age);
+  let g = gScrub.selectAll('g').data([1]); const ge = g.enter().append('g');
+  ge.append('rect').attr('class','grab').attr('x',-14).attr('y',0).attr('width',28).attr('height',214);
+  ge.append('line').attr('y1',10).attr('y2',TL.axisY);
+  ge.append('rect').attr('x',-15).attr('y',0).attr('width',30).attr('height',16).attr('rx',2);
+  ge.append('text').attr('y',12);
+  g = ge.merge(g).attr('transform',`translate(${x},0)`); g.select('text').text(state.age);
+}
+gScrub.call(d3.drag().on('start drag', ev => { const [px] = d3.pointer(ev, tl.node()); const a = Math.round(xinv(px)); if (a!==state.age){ if (state.mode==='field') { setMode('observer'); } setAge(a); } }));
+tl.on('click', ev => { if (ev.target.closest('.ev')||ev.target.closest('.scrub')) return; const [px] = d3.pointer(ev, tl.node()); if (px>=TL.x0-10 && px<=TL.x1+10) { if (state.mode==='field') setMode('observer'); setAge(Math.round(xinv(px))); } });
+document.querySelectorAll('#scaleSeg button').forEach(b => b.addEventListener('click', () => { state.scale=b.dataset.v; seg('scaleSeg', state.scale); renderTimeline(); }));
+
+// ---------- legend
+function legendSvg(inner){ return `<svg viewBox="0 0 26 14" aria-hidden="true">${inner}</svg>`; }
+const g0 = (t,r=5)=>`<path d="${glyph(t,r)}" transform="translate(13,7)" fill="var(--paper-2)" stroke="var(--ink)" stroke-width="1.4"/>`;
+document.getElementById('legend').innerHTML = `
+  <div class="head">Elevation · reinforcements</div>
+  ${['e0','e1','e2','e3','e4','e5'].map((e,i)=>`<div class="k">${legendSvg(`<rect x="2" y="2" width="22" height="10" fill="var(--${e})" stroke="var(--ink)" stroke-opacity=".3"/>`)}${['coast','1','3','5','7','9+'][i]}</div>`).join('')}
+  <div class="head">Glyphs</div>
+  <div class="k">${legendSvg(g0('event'))}event · index fossil</div><div class="k">${legendSvg(g0('person'))}person</div>
+  <div class="k">${legendSvg(g0('belief'))}belief · bedrock</div><div class="k">${legendSvg(g0('schema'))}schema · peak</div>
+  <div class="k">${legendSvg(g0('value'))}value · cardinal</div><div class="k">${legendSvg(g0('strategy'))}strategy · path</div>
+  <div class="k">${legendSvg(g0('taste')+'<circle cx="13" cy="7" r="1.6" fill="var(--ink)"/>')}taste · specimen</div>
+  <div class="k">${legendSvg(`<path d="${glyph('belief',5)}" transform="translate(13,7)" fill="var(--paper-2)" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="2.5 1.8"/>`)}proposed, not endorsed</div>
+  <div class="head">Edges</div>
+  <div class="k">${legendSvg('<line x1="2" y1="7" x2="24" y2="7" stroke="var(--ink)" stroke-width="1.2"/>')}caused / reinforced</div>
+  <div class="k">${legendSvg('<line x1="2" y1="7" x2="24" y2="7" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 3"/>')}contradicts</div>
+  <div class="k">${legendSvg('<line x1="2" y1="7" x2="24" y2="7" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="6 2 1.5 2"/>')}recut · later reinterpretation</div>
+  <div class="k">${legendSvg('<line x1="2" y1="7" x2="24" y2="7" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="1.5 3"/>')}inherited</div>
+  <div class="head">Ground</div>
+  <div class="k">${legendSvg('<rect x="2" y="2" width="22" height="10" fill="url(#hatch-unex)" stroke="var(--ink)" stroke-opacity=".5" stroke-dasharray="3 2"/>')}unexamined · a silence</div>
+  <div class="k">${legendSvg('<rect x="2" y="2" width="22" height="10" fill="url(#hatch-dense)" stroke="var(--ink)" stroke-opacity=".4"/>')}mediation hatch: external</div>`;
+
+// ---------- boot
+renderMap(); renderGhosts(); renderTimeline(); renderPanel();
+svg.classed('intro', !reduced); setTimeout(()=>svg.classed('intro', false), 2600);
+// line boil: the wobble seed ticks at a hand-drawn frame rate while the map is in view
+if (!reduced){ let seed = 3, inView = true; const turb = document.querySelector('#wobble feTurbulence');
+  new IntersectionObserver(es => { inView = es[0].isIntersecting; }).observe(mapwrap);
+  setInterval(() => { if (inView && document.visibilityState==='visible'){ seed = (seed % 60) + 1; turb.setAttribute('seed', seed); } }, 200); }
+// reveal
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin:'0px 0px -8% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.addEventListener('keydown', ev => { if (ev.key==='Escape' && state.selected) select(null); });
+})();
+</script></body></html>
